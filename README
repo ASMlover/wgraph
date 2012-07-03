@@ -1,0 +1,19 @@
+README for wgraph
+=================
+
+* What's wgraph?
+  --------------
+  wgraph is a library of windows graphics.
+
+* Building wgraph
+  ---------------
+  Enter directory named wgraph.
+  > cd wgraph
+  wgraph > nmake
+
+* Use wgraph
+  ----------
+  wgraph > wgraph -h
+  TODO:
+
+(end of README)
