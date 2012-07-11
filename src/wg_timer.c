@@ -1,18 +1,18 @@
-/* 
- * Copyright (c) 2012, ASMlover. All rights reserved.
- * 
+/*
+ * Copyright (c) 2012 ASMlover. All rights reserved.
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
  * are met:
- * 
+ *
  *  * Redistributions of source code must retain the above copyright
  *    notice, this list ofconditions and the following disclaimer.
- * 
- *  * Redistributions in binary form must reproduce the above copyright
+ *
  *    notice, this list of conditions and the following disclaimer in
+ *  * Redistributions in binary form must reproduce the above copyright
  *    the documentation and/or other materialsprovided with the
  *    distribution.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
@@ -26,13 +26,68 @@
  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-#ifndef __DEMO_HEADER_H__
-#define __DEMO_HEADER_H__
+#include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "../inc/wg_timer.h"
 
-extern void demo_browser(void* arg);
-extern void demo_drawdesktop(void* arg);
-extern void demo_fullwindow(void* arg);
-extern void demo_windowdx(void* arg);
-extern void demo_timer(void* arg);
+#if _WIN32 || _WIN64
+  #define inline __inline
+#endif
 
-#endif  /* __DEMO_HEADER_H__ */
+
+static inline uint64_t getCycleCount(void)
+{
+  _asm  _emit 0x0F
+  _asm  _emit 0x31
+}
+
+
+struct wgTimer {
+  uint64_t start_cycle;
+  uint64_t overhead;
+};
+
+
+
+struct wgTimer* wgTimerCreate(void)
+{
+  struct wgTimer* object;
+  size_t size = sizeof(struct wgTimer);
+
+  object = (struct wgTimer*)calloc(size, sizeof(char));
+  if (NULL != object)
+  {
+    wgTimerStart(object);
+    object->overhead = wgTimerStop(object);
+  }
+
+  return object;
+}
+
+void wgTimerRelease(struct wgTimer** object)
+{
+  if (NULL != *object)
+  {
+    free(*object);
+    *object = NULL;
+  }
+}
+
+void wgTimerStart(struct wgTimer* object)
+{
+  assert(NULL != object);
+  object->start_cycle = getCycleCount();
+}
+
+uint64_t wgTimerStop(struct wgTimer* object)
+{
+  assert(NULL != object);
+  return getCycleCount() - object->start_cycle - object->overhead;
+}
+
+uint64_t wgTimerOverhead(struct wgTimer* object)
+{
+  assert(NULL != object);
+  return object->overhead;
+}

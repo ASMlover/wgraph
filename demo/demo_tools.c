@@ -26,13 +26,34 @@
  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-#ifndef __DEMO_HEADER_H__
-#define __DEMO_HEADER_H__
+#define STRICT
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <tchar.h>
+#include <assert.h>
 
-extern void demo_browser(void* arg);
-extern void demo_drawdesktop(void* arg);
-extern void demo_fullwindow(void* arg);
-extern void demo_windowdx(void* arg);
-extern void demo_timer(void* arg);
+#include "demo_tools.h"
 
-#endif  /* __DEMO_HEADER_H__ */
+
+#define TOOLS_DIVVALUE_DEF  (72)
+
+
+
+void drawCenterText(HDC hDC, int x, int y, LPCTSTR face, LPCTSTR message, int point)
+{
+  HGDIOBJ hOld;
+  HFONT   hFont = CreateFont(-point * GetDeviceCaps(hDC, LOGPIXELSY) / TOOLS_DIVVALUE_DEF, 
+      0, 0, 0, FW_BOLD, TRUE, FALSE, FALSE, ANSI_CHARSET, OUT_TT_PRECIS, CLIP_DEFAULT_PRECIS, 
+      PROOF_QUALITY, VARIABLE_PITCH, face);
+  assert(NULL != hFont);
+
+  hOld = SelectObject(hDC, hFont);
+  SetTextAlign(hDC, TA_CENTER | TA_BASELINE);
+
+  SetBkMode(hDC, TRANSPARENT);
+  SetTextColor(hDC, RGB(0, 0, 0xFF));
+  TextOut(hDC, x, y, message, _tcslen(message));
+
+  SelectObject(hDC, hOld);
+  DeleteObject(hFont);
+}

@@ -2,6 +2,13 @@ ChangeLog for wgraph
 ====================
 
 
+Version 0.1			Date:2012/07/11
+-------------------------------
+* Add a lightweight window framework into wgraph.
+* Add demos of wgWindow with GDI and DirectDraw.
+* Add a timer functional module into wgraph.
+* Add demos of wgTimer.
+
 Version 0.1			Date:2012/07/02
 -------------------------------
 * Initial the project of windows graphics library.

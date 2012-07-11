@@ -1,0 +1,124 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+DXWindow	.\demo\demo_windowdx.c	/^struct DXWindow {$/;"	s	language:C	file:
+FullWindow	.\demo\demo_fullwindow.c	/^struct FullWindow {$/;"	s	language:C	file:
+ResultType	.\inc\common.h	/^enum ResultType {$/;"	g	language:C++
+Result_Failed	.\inc\common.h	/^  Result_Failed                     = 1, $/;"	e	language:C++	enum:ResultType
+Result_Failed_InvalidParameters	.\inc\common.h	/^  Result_Failed_InvalidParameters   = 2, $/;"	e	language:C++	enum:ResultType
+Result_Failed_RegisterWindowClass	.\inc\common.h	/^  Result_Failed_RegisterWindowClass = 3, $/;"	e	language:C++	enum:ResultType
+Result_Success	.\inc\common.h	/^  Result_Success                    = 0, $/;"	e	language:C++	enum:ResultType
+STRICT	.\demo\demo_browser.c	29;"	d	language:C	file:
+STRICT	.\demo\demo_drawdesktop.c	29;"	d	language:C	file:
+STRICT	.\demo\demo_fullwindow.c	29;"	d	language:C	file:
+STRICT	.\demo\demo_timer.c	29;"	d	language:C	file:
+STRICT	.\demo\demo_tools.c	29;"	d	language:C	file:
+STRICT	.\demo\demo_windowdx.c	58;"	d	language:C	file:
+STRICT	.\src\wg_window.c	29;"	d	language:C	file:
+TOOLS_DIVVALUE_DEF	.\demo\demo_tools.c	38;"	d	language:C	file:
+UNUSED_PARAM	.\inc\common.h	32;"	d	language:C++
+WDemo	.\demo\demo.c	/^struct WDemo {$/;"	s	language:C	file:
+WIN32_LEAN_AND_MEAN	.\demo\demo_drawdesktop.c	30;"	d	language:C	file:
+WIN32_LEAN_AND_MEAN	.\demo\demo_fullwindow.c	30;"	d	language:C	file:
+WIN32_LEAN_AND_MEAN	.\demo\demo_timer.c	30;"	d	language:C	file:
+WIN32_LEAN_AND_MEAN	.\demo\demo_tools.c	30;"	d	language:C	file:
+WIN32_LEAN_AND_MEAN	.\demo\demo_windowdx.c	59;"	d	language:C	file:
+WIN32_LEAN_AND_MEAN	.\src\wg_window.c	30;"	d	language:C	file:
+__COMMON_HEADER_H__	.\inc\common.h	30;"	d	language:C++
+__DEMO_HEADER_H__	.\demo\demo.h	30;"	d	language:C++
+__DEMO_TOOLS_HEADER_H__	.\demo\demo_tools.h	30;"	d	language:C++
+__WG_TIMER_HEADER_H__	.\inc\wg_timer.h	30;"	d	language:C++
+__WG_WINDOW_HEADER_H__	.\inc\wg_window.h	30;"	d	language:C++
+__blend	.\demo\demo_windowdx.c	/^static void __inline __blend(unsigned char* dest, unsigned char* src)$/;"	f	language:C	file:	signature:(unsigned char* dest, unsigned char* src)
+blend	.\demo\demo_windowdx.c	/^static void blend(struct DXWindow* self, int left, int top, int right, int bottom)$/;"	f	language:C	file:	signature:(struct DXWindow* self, int left, int top, int right, int bottom)
+centerText	.\demo\demo_drawdesktop.c	/^static void centerText(HDC hDC, int x, int y, $/;"	f	language:C	file:	signature:(HDC hDC, int x, int y, LPCTSTR face, LPCTSTR message, int point)
+cmd	.\demo\demo.c	/^  char* cmd;$/;"	m	language:C	struct:WDemo	file:
+countof	.\inc\common.h	33;"	d	language:C++
+createEx	.\inc\wg_window.h	/^  int (*createEx)(struct wgWindow*, DWORD, LPCTSTR, LPCTSTR, $/;"	m	language:C++	struct:wgWindow
+createExDef	.\src\wg_window.c	/^static int createExDef(struct wgWindow* object, DWORD styleEx, LPCTSTR className, LPCTSTR windowName, $/;"	f	language:C	file:	signature:(struct wgWindow* object, DWORD styleEx, LPCTSTR className, LPCTSTR windowName, DWORD style, int x, int y, int width, int height, HWND hParent, HMENU hMenu, HINSTANCE hInst)
+ddraw	.\demo\demo_windowdx.c	/^  LPDIRECTDRAW        ddraw;$/;"	m	language:C	struct:DXWindow	file:
+ddsurface	.\demo\demo_windowdx.c	/^  LPDIRECTDRAWSURFACE ddsurface;$/;"	m	language:C	struct:DXWindow	file:
+demo	.\demo\demo.c	/^  void (*demo)(void*);$/;"	m	language:C	struct:WDemo	file:
+demo_browser	.\demo\demo.h	/^extern void demo_browser(void* arg);$/;"	p	language:C++	signature:(void* arg)
+demo_browser	.\demo\demo_browser.c	/^void demo_browser(void* arg)$/;"	f	language:C	signature:(void* arg)
+demo_draw	.\demo\demo_fullwindow.c	/^static void demo_draw(struct wgWindow* object, HDC hDC)$/;"	f	language:C	file:	signature:(struct wgWindow* object, HDC hDC)
+demo_drawdesktop	.\demo\demo.h	/^extern void demo_drawdesktop(void* arg);$/;"	p	language:C++	signature:(void* arg)
+demo_drawdesktop	.\demo\demo_drawdesktop.c	/^void demo_drawdesktop(void* arg)$/;"	f	language:C	signature:(void* arg)
+demo_fullwindow	.\demo\demo.h	/^extern void demo_fullwindow(void* arg);$/;"	p	language:C++	signature:(void* arg)
+demo_fullwindow	.\demo\demo_fullwindow.c	/^void demo_fullwindow(void* arg)$/;"	f	language:C	signature:(void* arg)
+demo_help	.\demo\demo.c	/^static void demo_help(void* arg)$/;"	f	language:C	file:	signature:(void* arg)
+demo_keyDown	.\demo\demo_fullwindow.c	/^static void demo_keyDown(struct wgWindow* object, WPARAM wp, LPARAM lp)$/;"	f	language:C	file:	signature:(struct wgWindow* object, WPARAM wp, LPARAM lp)
+demo_timer	.\demo\demo.h	/^extern void demo_timer(void* arg);$/;"	p	language:C++	signature:(void* arg)
+demo_timer	.\demo\demo_timer.c	/^void demo_timer(void* arg)$/;"	f	language:C	signature:(void* arg)
+demo_windowdx	.\demo\demo.h	/^extern void demo_windowdx(void* arg);$/;"	p	language:C++	signature:(void* arg)
+demo_windowdx	.\demo\demo_windowdx.c	/^void demo_windowdx(void* arg)$/;"	f	language:C	signature:(void* arg)
+draw	.\demo\demo_windowdx.c	/^static void draw(struct wgWindow* object, HDC hDC)$/;"	f	language:C	file:	signature:(struct wgWindow* object, HDC hDC)
+draw	.\inc\wg_window.h	/^  void (*draw)(struct wgWindow*, HDC);$/;"	m	language:C++	struct:wgWindow
+drawCenterText	.\demo\demo_tools.c	/^void drawCenterText(HDC hDC, int x, int y, LPCTSTR face, LPCTSTR message, int point)$/;"	f	language:C	signature:(HDC hDC, int x, int y, LPCTSTR face, LPCTSTR message, int point)
+drawCenterText	.\demo\demo_tools.h	/^extern void drawCenterText(HDC hDC, int c, int y, LPCTSTR face, LPCTSTR message, int point);$/;"	p	language:C++	signature:(HDC hDC, int c, int y, LPCTSTR face, LPCTSTR message, int point)
+drawDef	.\src\wg_window.c	/^static void drawDef(struct wgWindow* object, HDC hDC)$/;"	f	language:C	file:	signature:(struct wgWindow* object, HDC hDC)
+dxWindowCreate	.\demo\demo_windowdx.c	/^static struct wgWindow* dxWindowCreate(void)$/;"	f	language:C	file:	signature:(void)
+dxWindowCreateSurface	.\demo\demo_windowdx.c	/^static int dxWindowCreateSurface(struct DXWindow* self)$/;"	f	language:C	file:	signature:(struct DXWindow* self)
+dxWindowRelase	.\demo\demo_windowdx.c	/^static void dxWindowRelase(struct wgWindow** object)$/;"	f	language:C	file:	signature:(struct wgWindow** object)
+fullCmd	.\demo\demo.c	/^  char* fullCmd;$/;"	m	language:C	struct:WDemo	file:
+fullWindowCreate	.\demo\demo_fullwindow.c	/^static struct wgWindow* fullWindowCreate(void)$/;"	f	language:C	file:	signature:(void)
+fullWindowRelease	.\demo\demo_fullwindow.c	/^static void fullWindowRelease(struct wgWindow** self)$/;"	f	language:C	file:	signature:(struct wgWindow** self)
+g_face	.\demo\demo_fullwindow.c	/^static const TCHAR g_face[]     = TEXT("Times New Roman");$/;"	v	language:C	file:
+g_face	.\demo\demo_windowdx.c	/^static const TCHAR* g_face    = TEXT("Times New Roman");$/;"	v	language:C	file:
+g_hint	.\demo\demo_fullwindow.c	/^static const TCHAR g_hint[]     = TEXT("Press ESC to quit.");$/;"	v	language:C	file:
+g_hint	.\demo\demo_windowdx.c	/^static const TCHAR* g_hint    = TEXT("Press ESC to quit.");$/;"	v	language:C	file:
+g_message	.\demo\demo_fullwindow.c	/^static const TCHAR g_message[]  = TEXT("Hello, world!");$/;"	v	language:C	file:
+g_message	.\demo\demo_windowdx.c	/^static const TCHAR* g_message = TEXT("Hello, world!");$/;"	v	language:C	file:
+g_program	.\demo\demo_fullwindow.c	/^static const TCHAR g_program[]  = TEXT("demo_fullwindow");$/;"	v	language:C	file:
+g_program	.\demo\demo_windowdx.c	/^static const TCHAR* g_program = TEXT("window_directX");$/;"	v	language:C	file:
+getCycleCount	.\src\wg_timer.c	/^static inline uint64_t getCycleCount(void)$/;"	f	language:C	file:	signature:(void)
+getWindowClassEx	.\inc\wg_window.h	/^  void (*getWindowClassEx)(struct wgWindow*, WNDCLASSEX*);$/;"	m	language:C++	struct:wgWindow
+getWindowClassExDef	.\src\wg_window.c	/^static void getWindowClassExDef(struct wgWindow* object, WNDCLASSEX* wc)$/;"	f	language:C	file:	signature:(struct wgWindow* object, WNDCLASSEX* wc)
+hWnd	.\inc\wg_window.h	/^  HWND hWnd;$/;"	m	language:C++	struct:wgWindow
+inline	.\src\wg_timer.c	35;"	d	language:C	file:
+keyDown	.\demo\demo_windowdx.c	/^static void keyDown(struct wgWindow* object, WPARAM wp, LPARAM lp)$/;"	f	language:C	file:	signature:(struct wgWindow* object, WPARAM wp, LPARAM lp)
+keyDown	.\inc\wg_window.h	/^  void (*keyDown)(struct wgWindow*, WPARAM, LPARAM);$/;"	m	language:C++	struct:wgWindow
+keyDownDef	.\src\wg_window.c	/^static void keyDownDef(struct wgWindow* object, WPARAM wp, LPARAM lp)$/;"	f	language:C	file:	signature:(struct wgWindow* object, WPARAM wp, LPARAM lp)
+main	.\demo\demo.c	/^main(int argc, char* argv[], char* envp[])$/;"	f	language:C	signature:(int argc, char* argv[], char* envp[])
+messageLoop	.\inc\wg_window.h	/^  WPARAM (*messageLoop)(struct wgWindow*);$/;"	m	language:C++	struct:wgWindow
+messageLoopDef	.\src\wg_window.c	/^static WPARAM messageLoopDef(struct wgWindow* object)$/;"	f	language:C	file:	signature:(struct wgWindow* object)
+overhead	.\src\wg_timer.c	/^  uint64_t overhead;$/;"	m	language:C	struct:wgTimer	file:
+start_cycle	.\src\wg_timer.c	/^  uint64_t start_cycle;$/;"	m	language:C	struct:wgTimer	file:
+uint64_t	.\inc\wg_timer.h	/^  typedef unsigned __int64 uint64_t;$/;"	t	language:C++
+uint64_t	.\inc\wg_timer.h	/^  typedef unsigned longlong uint64_t;$/;"	t	language:C++
+wgTimer	.\src\wg_timer.c	/^struct wgTimer {$/;"	s	language:C	file:
+wgTimerCreate	.\inc\wg_timer.h	/^extern struct wgTimer* wgTimerCreate(void);$/;"	p	language:C++	signature:(void)
+wgTimerCreate	.\src\wg_timer.c	/^struct wgTimer* wgTimerCreate(void)$/;"	f	language:C	signature:(void)
+wgTimerOverhead	.\inc\wg_timer.h	/^extern uint64_t wgTimerOverhead(struct wgTimer* object);$/;"	p	language:C++	signature:(struct wgTimer* object)
+wgTimerOverhead	.\src\wg_timer.c	/^uint64_t wgTimerOverhead(struct wgTimer* object)$/;"	f	language:C	signature:(struct wgTimer* object)
+wgTimerRelease	.\inc\wg_timer.h	/^extern void wgTimerRelease(struct wgTimer** object);$/;"	p	language:C++	signature:(struct wgTimer** object)
+wgTimerRelease	.\src\wg_timer.c	/^void wgTimerRelease(struct wgTimer** object)$/;"	f	language:C	signature:(struct wgTimer** object)
+wgTimerStart	.\inc\wg_timer.h	/^extern void wgTimerStart(struct wgTimer* object);$/;"	p	language:C++	signature:(struct wgTimer* object)
+wgTimerStart	.\src\wg_timer.c	/^void wgTimerStart(struct wgTimer* object)$/;"	f	language:C	signature:(struct wgTimer* object)
+wgTimerStop	.\inc\wg_timer.h	/^extern uint64_t wgTimerStop(struct wgTimer* object);$/;"	p	language:C++	signature:(struct wgTimer* object)
+wgTimerStop	.\src\wg_timer.c	/^uint64_t wgTimerStop(struct wgTimer* object)$/;"	f	language:C	signature:(struct wgTimer* object)
+wgWindow	.\inc\wg_window.h	/^struct wgWindow {$/;"	s	language:C++
+wgWindowCreate	.\inc\wg_window.h	/^extern struct wgWindow* wgWindowCreate(void);$/;"	p	language:C++	signature:(void)
+wgWindowCreate	.\src\wg_window.c	/^struct wgWindow* wgWindowCreate(void)$/;"	f	language:C	signature:(void)
+wgWindowHandle	.\inc\wg_window.h	/^extern HWND wgWindowHandle(struct wgWindow* object);$/;"	p	language:C++	signature:(struct wgWindow* object)
+wgWindowHandle	.\src\wg_window.c	/^HWND wgWindowHandle(struct wgWindow* object)$/;"	f	language:C	signature:(struct wgWindow* object)
+wgWindowInit	.\inc\wg_window.h	/^extern void wgWindowInit(struct wgWindow* object);$/;"	p	language:C++	signature:(struct wgWindow* object)
+wgWindowInit	.\src\wg_window.c	/^void wgWindowInit(struct wgWindow* object)$/;"	f	language:C	signature:(struct wgWindow* object)
+wgWindowRegister	.\inc\wg_window.h	/^extern int wgWindowRegister(struct wgWindow* object, HINSTANCE hInst, LPCTSTR className);$/;"	p	language:C++	signature:(struct wgWindow* object, HINSTANCE hInst, LPCTSTR className)
+wgWindowRegister	.\src\wg_window.c	/^int wgWindowRegister(struct wgWindow* object, HINSTANCE hInst, LPCTSTR className)$/;"	f	language:C	signature:(struct wgWindow* object, HINSTANCE hInst, LPCTSTR className)
+wgWindowRelease	.\inc\wg_window.h	/^extern void wgWindowRelease(struct wgWindow** object);$/;"	p	language:C++	signature:(struct wgWindow** object)
+wgWindowRelease	.\src\wg_window.c	/^void wgWindowRelease(struct wgWindow** object)$/;"	f	language:C	signature:(struct wgWindow** object)
+wgWindowShow	.\inc\wg_window.h	/^extern int wgWindowShow(struct wgWindow* object, int cmdShow);$/;"	p	language:C++	signature:(struct wgWindow* object, int cmdShow)
+wgWindowShow	.\src\wg_window.c	/^int wgWindowShow(struct wgWindow* object, int cmdShow)$/;"	f	language:C	signature:(struct wgWindow* object, int cmdShow)
+wgWindowUninit	.\inc\wg_window.h	/^extern void wgWindowUninit(struct wgWindow* object);$/;"	p	language:C++	signature:(struct wgWindow* object)
+wgWindowUninit	.\src\wg_window.c	/^void wgWindowUninit(struct wgWindow* object)$/;"	f	language:C	signature:(struct wgWindow* object)
+wgWindowUpdate	.\inc\wg_window.h	/^extern int wgWindowUpdate(struct wgWindow* object);$/;"	p	language:C++	signature:(struct wgWindow* object)
+wgWindowUpdate	.\src\wg_window.c	/^int wgWindowUpdate(struct wgWindow* object)$/;"	f	language:C	signature:(struct wgWindow* object)
+wgWindow_Inherit	.\inc\wg_window.h	42;"	d	language:C++
+wndProc	.\inc\wg_window.h	/^  LRESULT (*wndProc)(struct wgWindow*, HWND, UINT, WPARAM, LPARAM);$/;"	m	language:C++	struct:wgWindow
+wndProc	.\src\wg_window.c	/^static LRESULT CALLBACK wndProc(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)$/;"	f	language:C	file:	signature:(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
+wndProc	.\src\wg_window.c	/^static LRESULT CALLBACK wndProc(HWND, UINT, WPARAM, LPARAM);$/;"	p	language:C	file:
+wndProcDef	.\src\wg_window.c	/^static LRESULT wndProcDef(struct wgWindow* object, HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)$/;"	f	language:C	file:	signature:(struct wgWindow* object, HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)

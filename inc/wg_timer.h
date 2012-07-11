@@ -1,18 +1,18 @@
-/* 
- * Copyright (c) 2012, ASMlover. All rights reserved.
- * 
+/*
+ * Copyright (c) 2012 ASMlover. All rights reserved.
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
  * are met:
- * 
+ *
  *  * Redistributions of source code must retain the above copyright
  *    notice, this list ofconditions and the following disclaimer.
- * 
- *  * Redistributions in binary form must reproduce the above copyright
+ *
  *    notice, this list of conditions and the following disclaimer in
+ *  * Redistributions in binary form must reproduce the above copyright
  *    the documentation and/or other materialsprovided with the
  *    distribution.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
@@ -26,13 +26,22 @@
  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-#ifndef __DEMO_HEADER_H__
-#define __DEMO_HEADER_H__
+#ifndef __WG_TIMER_HEADER_H__
+#define __WG_TIMER_HEADER_H__
 
-extern void demo_browser(void* arg);
-extern void demo_drawdesktop(void* arg);
-extern void demo_fullwindow(void* arg);
-extern void demo_windowdx(void* arg);
-extern void demo_timer(void* arg);
+#if _WIN32 || _WIN64
+  typedef unsigned __int64 uint64_t;
+#else 
+  typedef unsigned longlong uint64_t;
+#endif
 
-#endif  /* __DEMO_HEADER_H__ */
+struct wgTimer;
+
+extern struct wgTimer* wgTimerCreate(void);
+extern void wgTimerRelease(struct wgTimer** object);
+
+extern void wgTimerStart(struct wgTimer* object);
+extern uint64_t wgTimerStop(struct wgTimer* object);
+extern uint64_t wgTimerOverhead(struct wgTimer* object);
+
+#endif  /* __WG_TIMER_HEADER_H__ */

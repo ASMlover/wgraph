@@ -26,13 +26,9 @@
  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-#ifndef __DEMO_HEADER_H__
-#define __DEMO_HEADER_H__
+#ifndef __DEMO_TOOLS_HEADER_H__
+#define __DEMO_TOOLS_HEADER_H__
 
-extern void demo_browser(void* arg);
-extern void demo_drawdesktop(void* arg);
-extern void demo_fullwindow(void* arg);
-extern void demo_windowdx(void* arg);
-extern void demo_timer(void* arg);
+extern void drawCenterText(HDC hDC, int c, int y, LPCTSTR face, LPCTSTR message, int point);
 
-#endif  /* __DEMO_HEADER_H__ */
+#endif  /* __DEMO_TOOLS_HEADER_H__ */
