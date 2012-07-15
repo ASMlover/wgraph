@@ -34,5 +34,6 @@ extern void demo_drawdesktop(void* arg);
 extern void demo_fullwindow(void* arg);
 extern void demo_windowdx(void* arg);
 extern void demo_timer(void* arg);
+extern void demo_pefile(void* arg);
 
 #endif  /* __DEMO_HEADER_H__ */

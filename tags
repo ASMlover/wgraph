@@ -6,6 +6,7 @@
 !_TAG_PROGRAM_VERSION	5.8	//
 DXWindow	.\demo\demo_windowdx.c	/^struct DXWindow {$/;"	s	language:C	file:
 FullWindow	.\demo\demo_fullwindow.c	/^struct FullWindow {$/;"	s	language:C	file:
+PEFile	.\src\pefile.c	/^struct PEFile {$/;"	s	language:C	file:
 ResultType	.\inc\common.h	/^enum ResultType {$/;"	g	language:C++
 Result_Failed	.\inc\common.h	/^  Result_Failed                     = 1, $/;"	e	language:C++	enum:ResultType
 Result_Failed_InvalidParameters	.\inc\common.h	/^  Result_Failed_InvalidParameters   = 2, $/;"	e	language:C++	enum:ResultType
@@ -14,22 +15,27 @@ Result_Success	.\inc\common.h	/^  Result_Success                    = 0, $/;"	e	
 STRICT	.\demo\demo_browser.c	29;"	d	language:C	file:
 STRICT	.\demo\demo_drawdesktop.c	29;"	d	language:C	file:
 STRICT	.\demo\demo_fullwindow.c	29;"	d	language:C	file:
+STRICT	.\demo\demo_pefile.c	29;"	d	language:C	file:
 STRICT	.\demo\demo_timer.c	29;"	d	language:C	file:
 STRICT	.\demo\demo_tools.c	29;"	d	language:C	file:
 STRICT	.\demo\demo_windowdx.c	58;"	d	language:C	file:
+STRICT	.\src\pefile.c	29;"	d	language:C	file:
 STRICT	.\src\wg_window.c	29;"	d	language:C	file:
 TOOLS_DIVVALUE_DEF	.\demo\demo_tools.c	38;"	d	language:C	file:
 UNUSED_PARAM	.\inc\common.h	32;"	d	language:C++
 WDemo	.\demo\demo.c	/^struct WDemo {$/;"	s	language:C	file:
 WIN32_LEAN_AND_MEAN	.\demo\demo_drawdesktop.c	30;"	d	language:C	file:
 WIN32_LEAN_AND_MEAN	.\demo\demo_fullwindow.c	30;"	d	language:C	file:
+WIN32_LEAN_AND_MEAN	.\demo\demo_pefile.c	30;"	d	language:C	file:
 WIN32_LEAN_AND_MEAN	.\demo\demo_timer.c	30;"	d	language:C	file:
 WIN32_LEAN_AND_MEAN	.\demo\demo_tools.c	30;"	d	language:C	file:
 WIN32_LEAN_AND_MEAN	.\demo\demo_windowdx.c	59;"	d	language:C	file:
+WIN32_LEAN_AND_MEAN	.\src\pefile.c	30;"	d	language:C	file:
 WIN32_LEAN_AND_MEAN	.\src\wg_window.c	30;"	d	language:C	file:
 __COMMON_HEADER_H__	.\inc\common.h	30;"	d	language:C++
 __DEMO_HEADER_H__	.\demo\demo.h	30;"	d	language:C++
 __DEMO_TOOLS_HEADER_H__	.\demo\demo_tools.h	30;"	d	language:C++
+__PE_FILE_HEADER__	.\inc\pefile.h	30;"	d	language:C++
 __WG_TIMER_HEADER_H__	.\inc\wg_timer.h	30;"	d	language:C++
 __WG_WINDOW_HEADER_H__	.\inc\wg_window.h	30;"	d	language:C++
 __blend	.\demo\demo_windowdx.c	/^static void __inline __blend(unsigned char* dest, unsigned char* src)$/;"	f	language:C	file:	signature:(unsigned char* dest, unsigned char* src)
@@ -44,6 +50,7 @@ ddsurface	.\demo\demo_windowdx.c	/^  LPDIRECTDRAWSURFACE ddsurface;$/;"	m	langua
 demo	.\demo\demo.c	/^  void (*demo)(void*);$/;"	m	language:C	struct:WDemo	file:
 demo_browser	.\demo\demo.h	/^extern void demo_browser(void* arg);$/;"	p	language:C++	signature:(void* arg)
 demo_browser	.\demo\demo_browser.c	/^void demo_browser(void* arg)$/;"	f	language:C	signature:(void* arg)
+demo_displayMessageA	.\demo\demo_pefile.c	/^static int WINAPI demo_displayMessageA(HWND hWnd, LPCSTR text, LPCSTR caption, UINT type)$/;"	f	language:C	file:	signature:(HWND hWnd, LPCSTR text, LPCSTR caption, UINT type)
 demo_draw	.\demo\demo_fullwindow.c	/^static void demo_draw(struct wgWindow* object, HDC hDC)$/;"	f	language:C	file:	signature:(struct wgWindow* object, HDC hDC)
 demo_drawdesktop	.\demo\demo.h	/^extern void demo_drawdesktop(void* arg);$/;"	p	language:C++	signature:(void* arg)
 demo_drawdesktop	.\demo\demo_drawdesktop.c	/^void demo_drawdesktop(void* arg)$/;"	f	language:C	signature:(void* arg)
@@ -51,10 +58,13 @@ demo_fullwindow	.\demo\demo.h	/^extern void demo_fullwindow(void* arg);$/;"	p	la
 demo_fullwindow	.\demo\demo_fullwindow.c	/^void demo_fullwindow(void* arg)$/;"	f	language:C	signature:(void* arg)
 demo_help	.\demo\demo.c	/^static void demo_help(void* arg)$/;"	f	language:C	file:	signature:(void* arg)
 demo_keyDown	.\demo\demo_fullwindow.c	/^static void demo_keyDown(struct wgWindow* object, WPARAM wp, LPARAM lp)$/;"	f	language:C	file:	signature:(struct wgWindow* object, WPARAM wp, LPARAM lp)
+demo_pefile	.\demo\demo.h	/^extern void demo_pefile(void* arg);$/;"	p	language:C++	signature:(void* arg)
+demo_pefile	.\demo\demo_pefile.c	/^void demo_pefile(void* arg)$/;"	f	language:C	signature:(void* arg)
 demo_timer	.\demo\demo.h	/^extern void demo_timer(void* arg);$/;"	p	language:C++	signature:(void* arg)
 demo_timer	.\demo\demo_timer.c	/^void demo_timer(void* arg)$/;"	f	language:C	signature:(void* arg)
 demo_windowdx	.\demo\demo.h	/^extern void demo_windowdx(void* arg);$/;"	p	language:C++	signature:(void* arg)
 demo_windowdx	.\demo\demo_windowdx.c	/^void demo_windowdx(void* arg)$/;"	f	language:C	signature:(void* arg)
+dosHeader	.\src\pefile.c	/^  PIMAGE_DOS_HEADER   dosHeader;$/;"	m	language:C	struct:PEFile	file:
 draw	.\demo\demo_windowdx.c	/^static void draw(struct wgWindow* object, HDC hDC)$/;"	f	language:C	file:	signature:(struct wgWindow* object, HDC hDC)
 draw	.\inc\wg_window.h	/^  void (*draw)(struct wgWindow*, HDC);$/;"	m	language:C++	struct:wgWindow
 drawCenterText	.\demo\demo_tools.c	/^void drawCenterText(HDC hDC, int x, int y, LPCTSTR face, LPCTSTR message, int point)$/;"	f	language:C	signature:(HDC hDC, int x, int y, LPCTSTR face, LPCTSTR message, int point)
@@ -85,7 +95,25 @@ keyDownDef	.\src\wg_window.c	/^static void keyDownDef(struct wgWindow* object, W
 main	.\demo\demo.c	/^main(int argc, char* argv[], char* envp[])$/;"	f	language:C	signature:(int argc, char* argv[], char* envp[])
 messageLoop	.\inc\wg_window.h	/^  WPARAM (*messageLoop)(struct wgWindow*);$/;"	m	language:C++	struct:wgWindow
 messageLoopDef	.\src\wg_window.c	/^static WPARAM messageLoopDef(struct wgWindow* object)$/;"	f	language:C	file:	signature:(struct wgWindow* object)
+moduleHandler	.\src\pefile.c	/^  const char*         moduleHandler;$/;"	m	language:C	struct:PEFile	file:
+ntHeader	.\src\pefile.c	/^  PIMAGE_NT_HEADERS   ntHeader;$/;"	m	language:C	struct:PEFile	file:
 overhead	.\src\wg_timer.c	/^  uint64_t overhead;$/;"	m	language:C	struct:wgTimer	file:
+peFileCreate	.\inc\pefile.h	/^extern struct PEFile* peFileCreate(HMODULE hModule);$/;"	p	language:C++	signature:(HMODULE hModule)
+peFileCreate	.\src\pefile.c	/^struct PEFile* peFileCreate(HMODULE moduleHandler)$/;"	f	language:C	signature:(HMODULE moduleHandler)
+peFileGetDirectory	.\inc\pefile.h	/^extern const void* peFileGetDirectory(struct PEFile* object, int id);$/;"	p	language:C++	signature:(struct PEFile* object, int id)
+peFileGetDirectory	.\src\pefile.c	/^const void* peFileGetDirectory(struct PEFile* object, int id)$/;"	f	language:C	signature:(struct PEFile* object, int id)
+peFileGetFunctionPtr	.\inc\pefile.h	/^extern const unsigned int* peFileGetFunctionPtr(struct PEFile* object, PIMAGE_IMPORT_DESCRIPTOR pImport, LPCSTR functionName);$/;"	p	language:C++	signature:(struct PEFile* object, PIMAGE_IMPORT_DESCRIPTOR pImport, LPCSTR functionName)
+peFileGetFunctionPtr	.\src\pefile.c	/^const unsigned int* peFileGetFunctionPtr(struct PEFile* object, PIMAGE_IMPORT_DESCRIPTOR pImport, LPCSTR functionName)$/;"	f	language:C	signature:(struct PEFile* object, PIMAGE_IMPORT_DESCRIPTOR pImport, LPCSTR functionName)
+peFileGetImportDiscriptor	.\inc\pefile.h	/^extern PIMAGE_IMPORT_DESCRIPTOR peFileGetImportDiscriptor(struct PEFile* object, LPCSTR dllName);$/;"	p	language:C++	signature:(struct PEFile* object, LPCSTR dllName)
+peFileGetImportDiscriptor	.\src\pefile.c	/^PIMAGE_IMPORT_DESCRIPTOR peFileGetImportDiscriptor(struct PEFile* object, LPCSTR dllName)$/;"	f	language:C	signature:(struct PEFile* object, LPCSTR dllName)
+peFileInit	.\src\pefile.c	/^static void peFileInit(struct PEFile* object, HMODULE moduleHandler)$/;"	f	language:C	file:	signature:(struct PEFile* object, HMODULE moduleHandler)
+peFileRelease	.\inc\pefile.h	/^extern void peFileRelease(struct PEFile** object);$/;"	p	language:C++	signature:(struct PEFile** object)
+peFileRelease	.\src\pefile.c	/^void peFileRelease(struct PEFile** object)$/;"	f	language:C	signature:(struct PEFile** object)
+peFileSetExportAddress	.\inc\pefile.h	/^extern FARPROC peFileSetExportAddress(struct PEFile* object, LPCSTR functionName, FARPROC functionAddress);$/;"	p	language:C++	signature:(struct PEFile* object, LPCSTR functionName, FARPROC functionAddress)
+peFileSetExportAddress	.\src\pefile.c	/^FARPROC peFileSetExportAddress(struct PEFile* object, LPCSTR functionName, FARPROC functionAddress)$/;"	f	language:C	signature:(struct PEFile* object, LPCSTR functionName, FARPROC functionAddress)
+peFileSetImportAddress	.\inc\pefile.h	/^extern FARPROC peFileSetImportAddress(struct PEFile* object, LPCSTR dllName, LPCSTR functionName, FARPROC functionAddress);$/;"	p	language:C++	signature:(struct PEFile* object, LPCSTR dllName, LPCSTR functionName, FARPROC functionAddress)
+peFileSetImportAddress	.\src\pefile.c	/^FARPROC peFileSetImportAddress(struct PEFile* object, LPCSTR dllName, LPCSTR functionName, FARPROC functionAddress)$/;"	f	language:C	signature:(struct PEFile* object, LPCSTR dllName, LPCSTR functionName, FARPROC functionAddress)
+rva2ptr	.\src\pefile.c	/^static const char* rva2ptr(struct PEFile* object, unsigned int rva)$/;"	f	language:C	file:	signature:(struct PEFile* object, unsigned int rva)
 start_cycle	.\src\wg_timer.c	/^  uint64_t start_cycle;$/;"	m	language:C	struct:wgTimer	file:
 uint64_t	.\inc\wg_timer.h	/^  typedef unsigned __int64 uint64_t;$/;"	t	language:C++
 uint64_t	.\inc\wg_timer.h	/^  typedef unsigned longlong uint64_t;$/;"	t	language:C++
