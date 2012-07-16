@@ -53,15 +53,50 @@ static int WINAPI demo_displayMessageA(HWND hWnd, LPCSTR text, LPCSTR caption, U
 }
 
 
+static void demo_pefile_setImport(HINSTANCE hInst)
+{
+  struct PEFile* pe = peFileCreate(hInst);
+
+  peFileSetImportAddress(pe, "user32.dll", "MessageBoxA", (FARPROC)demo_displayMessageA);
+  MessageBoxA(NULL, "Test", "peFileSetImportAddress", MB_OK);
+  
+  peFileRelease(&pe);
+}
+
+static void demo_pefile_setExport(void)
+{
+  HMODULE hUser = GetModuleHandle(TEXT("user32.dll"));
+  struct PEFile* pe = peFileCreate(hUser);
+
+  peFileSetExportAddress(pe, "MessageBoxA", (FARPROC)demo_displayMessageA);
+
+  MessageBoxA(NULL, "MessageBoxA (demo_displayMessageA)", "peFileSetExportAddress", MB_OK);
+
+  peFileRelease(&pe);
+}
+
+static void demo_pefile_help(void)
+{
+  fprintf(stdout, 
+    "  usage : wgraph [option1] [option2]\n\n"
+    "  General option2:\n"
+    "    -import    PEFile module SetImportAddress demo\n"
+    "    -export    PEFile module SetExportAddress demo\n"
+    );
+}
+
+
 void demo_pefile(void* arg)
 {
   HINSTANCE hInst = GetModuleHandle(NULL);
-  struct PEFile* pe = peFileCreate(hInst);
   fprintf(stdout, "call function : %s, entry module is : 0x%8p\n", __FUNCTION__, hInst);
 
-  peFileSetImportAddress(pe, "user32.dll", "MessageBoxA", (FARPROC)demo_displayMessageA);
-
-  MessageBoxA(NULL, "Test", "peFileSetImportAddress", MB_OK);
-
-  peFileRelease(&pe);
+  if (NULL == arg)
+    demo_pefile_help();
+  else if (0 == stricmp("-import", (const char*)arg))
+    demo_pefile_setImport(hInst);
+  else if (0 == stricmp("-export", (const char*)arg))
+    demo_pefile_setExport();
+  else
+    demo_pefile_help();
 }

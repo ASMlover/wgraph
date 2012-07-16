@@ -161,5 +161,42 @@ FARPROC peFileSetImportAddress(struct PEFile* object, LPCSTR dllName, LPCSTR fun
 
 FARPROC peFileSetExportAddress(struct PEFile* object, LPCSTR functionName, FARPROC functionAddress)
 {
+  if (NULL != object && NULL != functionName && NULL != functionAddress)
+  {
+    unsigned int ordinal = 0;
+    PIMAGE_EXPORT_DIRECTORY pExport = (PIMAGE_EXPORT_DIRECTORY)peFileGetDirectory(object, IMAGE_DIRECTORY_ENTRY_EXPORT);
+
+    DWORD* rvaPtr;
+    DWORD  result, writeLen = 0, newRvaValue;
+
+    if (NULL == pExport)
+      return NULL;
+    if ((unsigned int)functionName < 0xFFFF)
+      ordinal = (unsigned int)functionName;
+    else
+    {
+      const unsigned long* namesArray = (const unsigned long*)rva2ptr(object, pExport->AddressOfNames);
+      const unsigned short* ordinalsArray = (const unsigned short*)rva2ptr(object, pExport->AddressOfNameOrdinals);
+      unsigned int i;
+      for (i = 0u; i < pExport->AddressOfNames; ++i)
+      {
+        if (0 == stricmp(functionName, rva2ptr(object, namesArray[i])))
+        {
+          ordinal = pExport->Base + ordinalsArray[i];
+          break;
+        }
+      }
+    }
+
+    if ((ordinal < pExport->Base) || (ordinal > pExport->NumberOfFunctions))
+      return NULL;
+
+    rvaPtr = (DWORD*)rva2ptr(object, pExport->AddressOfFunctions) + ordinal - pExport->Base;
+    result = *rvaPtr;
+    newRvaValue = (DWORD)functionAddress - (DWORD)object->moduleHandler;
+    WriteProcessMemory(GetCurrentProcess(), rvaPtr, &newRvaValue, sizeof(DWORD), &writeLen);
+
+    return (FARPROC)rva2ptr(object, result);
+  }
   return NULL;
 }
