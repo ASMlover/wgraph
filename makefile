@@ -9,13 +9,13 @@ MT		= mt -nologo
 RM		= rm
 SRCS	= ./demo/demo.c ./demo/demo_browser.c ./demo/demo_drawdesktop.c\
 				./demo/demo_fullwindow.c ./demo/demo_tools.c ./demo/demo_windowdx.c\
-				./demo/demo_timer.c ./demo/demo_pefile.c\
+				./demo/demo_timer.c ./demo/demo_pehack.c\
 				\
-				./src/wg_window.c ./src/wg_timer.c ./src/pefile.c
+				./src/wg_window.c ./src/wg_timer.c ./src/wg_pehack.c
 OBJS	= demo.obj demo_browser.obj demo_drawdesktop.obj demo_fullwindow.obj\
-				demo_tools.obj demo_windowdx.obj demo_timer.obj demo_pefile.obj\
+				demo_tools.obj demo_windowdx.obj demo_timer.obj demo_pehack.obj\
 				\
-				wg_window.obj wg_timer.obj pefile.obj
+				wg_window.obj wg_timer.obj wg_pehack.obj
 
 $(BIN):$(OBJS)
 	$(LINK) -out:$(BIN) $(OBJS) $(LFLAG)
