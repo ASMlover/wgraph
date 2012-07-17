@@ -32,7 +32,7 @@
 #include <tchar.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "../inc/pefile.h"
+#include "../inc/wg_pehack.h"
 
 #include "demo.h"
 
@@ -53,50 +53,58 @@ static int WINAPI demo_displayMessageA(HWND hWnd, LPCSTR text, LPCSTR caption, U
 }
 
 
-static void demo_pefile_setImport(HINSTANCE hInst)
+static void demo_pehack_setImport(HINSTANCE hInst)
 {
-  struct PEFile* pe = peFileCreate(hInst);
+  struct wgPEHack* pe = wgPEHackCreate(hInst);
 
-  peFileSetImportAddress(pe, "user32.dll", "MessageBoxA", (FARPROC)demo_displayMessageA);
-  MessageBoxA(NULL, "Test", "peFileSetImportAddress", MB_OK);
+  wgPEHackSetImportAddress(pe, "user32.dll", "MessageBoxA", (FARPROC)demo_displayMessageA);
+  MessageBoxA(NULL, "Test", "wgPEHackSetImportAddress", MB_OK);
   
-  peFileRelease(&pe);
+  wgPEHackRelease(&pe);
 }
 
-static void demo_pefile_setExport(void)
+static void demo_pehack_setExport(void)
 {
   HMODULE hUser = GetModuleHandle(TEXT("user32.dll"));
-  struct PEFile* pe = peFileCreate(hUser);
+  struct wgPEHack* pe = wgPEHackCreate(hUser);
+  FARPROC oldAddress, newAddress;
+  char   buffer[128];
 
-  peFileSetExportAddress(pe, "MessageBoxA", (FARPROC)demo_displayMessageA);
+  oldAddress = (FARPROC)GetProcAddress(hUser, "MessageBoxA");
+  wgPEHackSetExportAddress(pe, "MessageBoxA", (FARPROC)demo_displayMessageA);
+  newAddress = (FARPROC)GetProcAddress(hUser, "MessageBoxA");
 
-  MessageBoxA(NULL, "MessageBoxA (demo_displayMessageA)", "peFileSetExportAddress", MB_OK);
+  sprintf(buffer, "GetProcAddress(MessageBoxA) changes from 0x%p to 0x%p", oldAddress, newAddress);
+  MessageBoxA(NULL, buffer, "wgPEHackSetExportAddress", MB_OK);
 
-  peFileRelease(&pe);
+  wgPEHackRelease(&pe);
 }
 
-static void demo_pefile_help(void)
+static void demo_pehack_help(void)
 {
   fprintf(stdout, 
     "  usage : wgraph [option1] [option2]\n\n"
     "  General option2:\n"
-    "    -import    PEFile module SetImportAddress demo\n"
-    "    -export    PEFile module SetExportAddress demo\n"
+    "    -import    wgPEHack module SetImportAddress demo\n"
+    "    -export    wgPEHack module SetExportAddress demo\n"
     );
 }
 
 
-void demo_pefile(void* arg)
+void demo_pehack(void* arg)
 {
   HINSTANCE hInst = GetModuleHandle(NULL);
   fprintf(stdout, "call function : %s, entry module is : 0x%8p\n", __FUNCTION__, hInst);
 
   if (NULL == arg)
-    demo_pefile_help();
+    demo_pehack_help();
   else if (0 == stricmp("-import", (const char*)arg))
-    demo_pefile_setImport(hInst);
+    demo_pehack_setImport(hInst);
   else if (0 == stricmp("-export", (const char*)arg))
-    demo_pefile_setExport();
+  {
+    demo_pehack_setImport(hInst);
+    demo_pehack_setExport();        /* why set export address must be set import address first??? */
+  }
   else
-    demo_pefile_help();
+    demo_pehack_help();
 }

@@ -33,17 +33,44 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../inc/pefile.h"
+#include "../inc/wg_pehack.h"
+
+
+static BOOL WINAPI 
+HackWriteProcessMemory(HANDLE hProcess, void* dest, void* source, DWORD sourceLen, DWORD* outWriteLen)
+{
+  __try 
+  {
+    memcpy(dest, source, sourceLen);
+  }
+  __except (EXCEPTION_EXECUTE_HANDLER)
+  {
+    __try 
+    {
+      MEMORY_BASIC_INFORMATION mbi;
+      VirtualQuery(dest, &mbi, sizeof(mbi));
+      VirtualProtect(mbi.BaseAddress, mbi.RegionSize, PAGE_READWRITE, &mbi.Protect);
+      memcpy(dest, source, sourceLen);
+    }
+    __except (EXCEPTION_EXECUTE_HANDLER)
+    {
+      return FALSE;
+    }
+  }
+
+  *outWriteLen = sourceLen;
+  return TRUE;
+}
 
 
 
-struct PEFile {
+struct wgPEHack {
   const char*         moduleHandler;
   PIMAGE_DOS_HEADER   dosHeader;
   PIMAGE_NT_HEADERS   ntHeader;
 };
 
-static const char* rva2ptr(struct PEFile* object, unsigned int rva)
+static const char* rva2ptr(struct wgPEHack* object, unsigned int rva)
 {
   if ((NULL != object->moduleHandler) && (0u != rva))
     return (object->moduleHandler + rva);
@@ -51,7 +78,7 @@ static const char* rva2ptr(struct PEFile* object, unsigned int rva)
     return NULL;
 }
 
-static void peFileInit(struct PEFile* object, HMODULE moduleHandler)
+static void peFileInit(struct wgPEHack* object, HMODULE moduleHandler)
 {
   object->moduleHandler = (const char*)moduleHandler;
   if (IsBadReadPtr(moduleHandler, sizeof(IMAGE_DOS_HEADER)))
@@ -69,19 +96,19 @@ static void peFileInit(struct PEFile* object, HMODULE moduleHandler)
   }
 }
 
-struct PEFile* peFileCreate(HMODULE moduleHandler)
+struct wgPEHack* wgPEHackCreate(HMODULE moduleHandler)
 {
-  struct PEFile* object;
-  size_t size = sizeof(struct PEFile);
+  struct wgPEHack* object;
+  size_t size = sizeof(struct wgPEHack);
 
-  object = (struct PEFile*)calloc(size, sizeof(char));
+  object = (struct wgPEHack*)calloc(size, sizeof(char));
   if (NULL != object)
     peFileInit(object, moduleHandler);
 
   return object;
 }
 
-void peFileRelease(struct PEFile** object)
+void wgPEHackRelease(struct wgPEHack** object)
 {
   if (NULL != *object)
   {
@@ -90,17 +117,17 @@ void peFileRelease(struct PEFile** object)
   }
 }
 
-const void* peFileGetDirectory(struct PEFile* object, int id)
+const void* wgPEHackGetDirectory(struct wgPEHack* object, int id)
 {
   assert(NULL != object);
   return rva2ptr(object, object->ntHeader->OptionalHeader.DataDirectory[id].VirtualAddress);
 }
 
-PIMAGE_IMPORT_DESCRIPTOR peFileGetImportDiscriptor(struct PEFile* object, LPCSTR dllName)
+PIMAGE_IMPORT_DESCRIPTOR wgPEHackGetImportDescriptor(struct wgPEHack* object, LPCSTR dllName)
 {
   if (NULL != object && NULL != dllName)
   {
-    PIMAGE_IMPORT_DESCRIPTOR pImport = (PIMAGE_IMPORT_DESCRIPTOR)peFileGetDirectory(object, IMAGE_DIRECTORY_ENTRY_IMPORT);
+    PIMAGE_IMPORT_DESCRIPTOR pImport = (PIMAGE_IMPORT_DESCRIPTOR)wgPEHackGetDirectory(object, IMAGE_DIRECTORY_ENTRY_IMPORT);
 
     if (NULL == pImport)
       return NULL;
@@ -114,13 +141,13 @@ PIMAGE_IMPORT_DESCRIPTOR peFileGetImportDiscriptor(struct PEFile* object, LPCSTR
   return NULL;
 }
 
-const unsigned int* peFileGetFunctionPtr(struct PEFile* object, PIMAGE_IMPORT_DESCRIPTOR pImport, LPCSTR functionName)
+const UINT* wgPEHackGetFunctionPtr(struct wgPEHack* object, PIMAGE_IMPORT_DESCRIPTOR import, LPCSTR functionName)
 {
-  if (NULL != object && NULL != pImport && NULL != functionName)
+  if (NULL != object && NULL != import && NULL != functionName)
   {
     int  i;
     BOOL matched;
-    PIMAGE_THUNK_DATA thunk = (PIMAGE_THUNK_DATA)rva2ptr(object, pImport->OriginalFirstThunk);
+    PIMAGE_THUNK_DATA thunk = (PIMAGE_THUNK_DATA)rva2ptr(object, import->OriginalFirstThunk);
 
     for (i = 0; thunk->u1.Function; ++i)
     {
@@ -130,41 +157,41 @@ const unsigned int* peFileGetFunctionPtr(struct PEFile* object, PIMAGE_IMPORT_DE
         matched = (0 == stricmp(functionName, rva2ptr(object, (unsigned int)thunk->u1.AddressOfData) + 2));
 
       if (matched)
-        return (unsigned int*)rva2ptr(object, pImport->FirstThunk) + i;
+        return (unsigned int*)rva2ptr(object, import->FirstThunk) + i;
       ++thunk;
     }
   }
   return NULL;
 }
 
-FARPROC peFileSetImportAddress(struct PEFile* object, LPCSTR dllName, LPCSTR functionName, FARPROC functionAddress)
+FARPROC wgPEHackSetImportAddress(struct wgPEHack* object, LPCSTR dllName, LPCSTR functionName, FARPROC functionAddress)
 {
   if (NULL != object && NULL != dllName && NULL != functionName && NULL != functionAddress)
   {
-    PIMAGE_IMPORT_DESCRIPTOR pImport = peFileGetImportDiscriptor(object, dllName);
+    PIMAGE_IMPORT_DESCRIPTOR import = wgPEHackGetImportDescriptor(object, dllName);
 
-    if (NULL != pImport)
+    if (NULL != import)
     {
       FARPROC oldFuncAddress;
       DWORD   writeLen;
-      const unsigned int* functionPtr = peFileGetFunctionPtr(object, pImport, functionName);
+      const unsigned int* functionPtr = wgPEHackGetFunctionPtr(object, import, functionName);
       if (IsBadReadPtr(functionPtr, sizeof(unsigned int)))
         return NULL;
 
       oldFuncAddress = (FARPROC)*functionPtr;
-      WriteProcessMemory(GetCurrentProcess(), (void*)functionPtr, &functionAddress, sizeof(DWORD), &writeLen);
+      HackWriteProcessMemory(GetCurrentProcess(), (void*)functionPtr, &functionAddress, sizeof(DWORD), &writeLen);
       return oldFuncAddress;
     }
   }
   return NULL;
 }
 
-FARPROC peFileSetExportAddress(struct PEFile* object, LPCSTR functionName, FARPROC functionAddress)
+FARPROC wgPEHackSetExportAddress(struct wgPEHack* object, LPCSTR functionName, FARPROC functionAddress)
 {
   if (NULL != object && NULL != functionName && NULL != functionAddress)
   {
     unsigned int ordinal = 0;
-    PIMAGE_EXPORT_DIRECTORY pExport = (PIMAGE_EXPORT_DIRECTORY)peFileGetDirectory(object, IMAGE_DIRECTORY_ENTRY_EXPORT);
+    PIMAGE_EXPORT_DIRECTORY pExport = (PIMAGE_EXPORT_DIRECTORY)wgPEHackGetDirectory(object, IMAGE_DIRECTORY_ENTRY_EXPORT);
 
     DWORD* rvaPtr;
     DWORD  result, writeLen = 0, newRvaValue;
@@ -194,7 +221,7 @@ FARPROC peFileSetExportAddress(struct PEFile* object, LPCSTR functionName, FARPR
     rvaPtr = (DWORD*)rva2ptr(object, pExport->AddressOfFunctions) + ordinal - pExport->Base;
     result = *rvaPtr;
     newRvaValue = (DWORD)functionAddress - (DWORD)object->moduleHandler;
-    WriteProcessMemory(GetCurrentProcess(), rvaPtr, &newRvaValue, sizeof(DWORD), &writeLen);
+    HackWriteProcessMemory(GetCurrentProcess(), rvaPtr, &newRvaValue, sizeof(DWORD), &writeLen);
 
     return (FARPROC)rva2ptr(object, result);
   }

@@ -26,22 +26,22 @@
  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-#ifndef __PE_FILE_HEADER__
-#define __PE_FILE_HEADER__
+#ifndef __WG_PEHACK_HEADER_H__
+#define __WG_PEHACK_HEADER_H__
 
-struct PEFile;
+struct wgPEHack;
 
-extern struct PEFile* peFileCreate(HMODULE hModule);
-extern void peFileRelease(struct PEFile** object);
+extern struct wgPEHack* wgPEHackCreate(HMODULE moduleHandler);
+extern void wgPEHackRelease(struct wgPEHack** object);
 
-extern const void* peFileGetDirectory(struct PEFile* object, int id);
+extern const void* wgPEHackGetDirectory(struct wgPEHack* object, int id);
 
 /* returns PIMAGE_IMPORT_DESCRIPTOR for an imported module */
-extern PIMAGE_IMPORT_DESCRIPTOR peFileGetImportDiscriptor(struct PEFile* object, LPCSTR dllName);
+extern PIMAGE_IMPORT_DESCRIPTOR wgPEHackGetImportDescriptor(struct wgPEHack* object, LPCSTR dllName);
 
 /* returns address of __imp_xxx variable for an import function */
-extern const unsigned int* peFileGetFunctionPtr(struct PEFile* object, PIMAGE_IMPORT_DESCRIPTOR pImport, LPCSTR functionName);
-extern FARPROC peFileSetImportAddress(struct PEFile* object, LPCSTR dllName, LPCSTR functionName, FARPROC functionAddress);
-extern FARPROC peFileSetExportAddress(struct PEFile* object, LPCSTR functionName, FARPROC functionAddress);
+extern const UINT* wgPEHackGetFunctionPtr(struct wgPEHack* object, PIMAGE_IMPORT_DESCRIPTOR import, LPCSTR functionName);
+extern FARPROC wgPEHackSetImportAddress(struct wgPEHack* object, LPCSTR dllName, LPCSTR functionName, FARPROC functionAddress);
+extern FARPROC wgPEHackSetExportAddress(struct wgPEHack* object, LPCSTR functionName, FARPROC functionAddress);
 
-#endif  /* __PE_FILE_HEADER__ */
+#endif  /* __WG_PEHACK_HEADER_H__ */

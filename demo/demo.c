@@ -52,7 +52,7 @@ static void demo_help(void* arg)
     "  -[f]ullwin   display the demo of full window\n"
     "  -[dx]win     display the demo of DirectShow window (DX)\n"
     "  -[t]imer     display the demo of wgTimer module\n"
-    "  -[pe]file    display the demo of peFile module\n"
+    "  -[peh]ack    display the demo of wgPEHack module\n"
     );
 }
 
@@ -60,13 +60,13 @@ int
 main(int argc, char* argv[], char* envp[])
 {
   static struct WDemo demos[] = {
-    { "-h", "-help",    demo_help         }, 
-    { "-b", "-browser", demo_browser      }, 
-    { "-d", "-desktop", demo_drawdesktop  }, 
-    { "-f", "-fullwin", demo_fullwindow   }, 
-    { "-dx","-dxwin",   demo_windowdx     }, 
-    { "-t", "-timer",   demo_timer        }, 
-    { "-pe","-pefile",  demo_pefile       }, 
+    { "-h",   "-help",    demo_help         }, 
+    { "-b",   "-browser", demo_browser      }, 
+    { "-d",   "-desktop", demo_drawdesktop  }, 
+    { "-f",   "-fullwin", demo_fullwindow   }, 
+    { "-dx",  "-dxwin",   demo_windowdx     }, 
+    { "-t",   "-timer",   demo_timer        }, 
+    { "-peh", "-pehack",  demo_pehack       }, 
   };
 
   UNUSED_PARAM(envp)

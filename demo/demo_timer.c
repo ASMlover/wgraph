@@ -43,7 +43,7 @@
 void demo_timer(void* arg)
 {
   struct wgTimer* timer = wgTimerCreate();
-  char   buffer[128];
+  TCHAR  buffer[128];
   unsigned int cpuSpeed10, useTime;
 
   UNUSED_PARAM(arg)
