@@ -46,13 +46,14 @@ static void demo_help(void* arg)
     "wgraph demo version 0.1 - Copyright (c) 2012 ASMlover.\n"
     "usage : wgraph [option]\n\n"
     "General options:\n"
-    "  -[h]elp      display the help document of the wgraph.\n"
-    "  -[b]rowser   display the demo of run web browser.\n"
-    "  -[d]esktop   display the demo of draw line on desktop.\n"
-    "  -[f]ullwin   display the demo of full window\n"
-    "  -[dx]win     display the demo of DirectShow window (DX)\n"
-    "  -[t]imer     display the demo of wgTimer module\n"
-    "  -[pe]file    display the demo of peFile module\n"
+    "  -h|-help       display the help document of the wgraph.\n"
+    "  -b|-browser    display the demo of run web browser.\n"
+    "  -d|-desktop    display the demo of draw line on desktop.\n"
+    "  -f|-fullwin    display the demo of full window\n"
+    "  -dx|-dxwin     display the demo of DirectShow window (DX)\n"
+    "  -t|-timer      display the demo of wgTimer module\n"
+    "  -pe|-pefile    display the demo of peFile module\n"
+    "  -gt|-gditest   display the demo of GDIObject test module\n"
     );
 }
 
@@ -67,6 +68,7 @@ main(int argc, char* argv[], char* envp[])
     { "-dx","-dxwin",   demo_windowdx     }, 
     { "-t", "-timer",   demo_timer        }, 
     { "-pe","-pefile",  demo_pefile       }, 
+    { "-gt","-gditest", demo_gdi_test     },  
   };
 
   UNUSED_PARAM(envp)
