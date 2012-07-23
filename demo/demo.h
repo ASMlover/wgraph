@@ -37,5 +37,6 @@ extern void demo_timer(void* arg);
 extern void demo_pehack(void* arg);
 
 extern void demo_gdi_test(void* arg);
+extern void demo_gdiquerytable_test(void* arg);
 
 #endif  /* __DEMO_HEADER_H__ */

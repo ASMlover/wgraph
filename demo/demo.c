@@ -46,14 +46,15 @@ static void demo_help(void* arg)
     "wgraph demo version 0.1 - Copyright (c) 2012 ASMlover.\n"
     "usage : wgraph [option]\n\n"
     "General options:\n"
-    "  -h|-help       display the help document of the wgraph.\n"
-    "  -b|-browser    display the demo of run web browser.\n"
-    "  -d|-desktop    display the demo of draw line on desktop.\n"
-    "  -f|-fullwin    display the demo of full window\n"
-    "  -dx|-dxwin     display the demo of DirectShow window (DX)\n"
-    "  -t|-timer      display the demo of wgTimer module\n"
-    "  -pe|-pehack    display the demo of wgPEHack module\n"
-    "  -gt|-gditest   display the demo of GDIObject test module\n"
+    "  -h|-help             display the help document of the wgraph.\n"
+    "  -b|-browser          display the demo of run web browser.\n"
+    "  -d|-desktop          display the demo of draw line on desktop.\n"
+    "  -f|-fullwin          display the demo of full window\n"
+    "  -dx|-dxwin           display the demo of DirectShow window (DX)\n"
+    "  -t|-timer            display the demo of wgTimer module\n"
+    "  -pe|-pehack          display the demo of wgPEHack module\n"
+    "  -gt|-gditest         display the demo of GDIObject test module\n"
+    "  -qtt|-qtabletest     display the demo of GDI query table testcase\n"
     );
 }
 
@@ -61,14 +62,15 @@ int
 main(int argc, char* argv[], char* envp[])
 {
   static struct WDemo demos[] = {
-    { "-h", "-help",    demo_help         }, 
-    { "-b", "-browser", demo_browser      }, 
-    { "-d", "-desktop", demo_drawdesktop  }, 
-    { "-f", "-fullwin", demo_fullwindow   }, 
-    { "-dx","-dxwin",   demo_windowdx     }, 
-    { "-t", "-timer",   demo_timer        }, 
-    { "-pe","-pehack",  demo_pehack       }, 
-    { "-gt","-gditest", demo_gdi_test     },  
+    { "-h",   "-help",        demo_help                 }, 
+    { "-b",   "-browser",     demo_browser              }, 
+    { "-d",   "-desktop",     demo_drawdesktop          }, 
+    { "-f",   "-fullwin",     demo_fullwindow           }, 
+    { "-dx",  "-dxwin",       demo_windowdx             }, 
+    { "-t",   "-timer",       demo_timer                }, 
+    { "-pe",  "-pehack",      demo_pehack               }, 
+    { "-gt",  "-gditest",     demo_gdi_test             },  
+    { "-qtt", "-qtabletest",  demo_gdiquerytable_test   }, 
   };
 
   UNUSED_PARAM(envp)
