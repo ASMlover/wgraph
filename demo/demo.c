@@ -67,7 +67,7 @@ main(int argc, char* argv[], char* envp[])
     { "-f", "-fullwin", demo_fullwindow   }, 
     { "-dx","-dxwin",   demo_windowdx     }, 
     { "-t", "-timer",   demo_timer        }, 
-    { "-pe","-pefile",  demo_pehack       }, 
+    { "-pe","-pehack",  demo_pehack       }, 
     { "-gt","-gditest", demo_gdi_test     },  
   };
 
