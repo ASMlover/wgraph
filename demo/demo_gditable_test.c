@@ -1,18 +1,18 @@
-/* 
- * Copyright (c) 2012, ASMlover. All rights reserved.
- * 
+/*
+ * Copyright (c) 2012 ASMlover. All rights reserved.
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
  * are met:
- * 
+ *
  *  * Redistributions of source code must retain the above copyright
  *    notice, this list ofconditions and the following disclaimer.
- * 
- *  * Redistributions in binary form must reproduce the above copyright
+ *
  *    notice, this list of conditions and the following disclaimer in
+ *  * Redistributions in binary form must reproduce the above copyright
  *    the documentation and/or other materialsprovided with the
  *    distribution.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
@@ -26,18 +26,34 @@
  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-#ifndef __DEMO_HEADER_H__
-#define __DEMO_HEADER_H__
+#define STRICT
+#include <windows.h>
+#include <tchar.h>
+#include <stdio.h>
+#include "../inc/common.h"
+#include "demo_gditable.h"
 
-extern void demo_browser(void* arg);
-extern void demo_drawdesktop(void* arg);
-extern void demo_fullwindow(void* arg);
-extern void demo_windowdx(void* arg);
-extern void demo_timer(void* arg);
-extern void demo_pehack(void* arg);
+#include "demo.h"
 
-extern void demo_gdi_test(void* arg);
-extern void demo_gdiquerytable_test(void* arg);
-extern void demo_gditable_test(void* arg);
 
-#endif  /* __DEMO_HEADER_H__ */
+
+void demo_gditable_test(void* arg)
+{
+  struct GdiTable* gditable = gdiTableCreate();
+  struct GdiTableCell cell;
+
+  UNUSED_PARAM(arg)
+  fprintf(stdout, "call function : %s\n", __FUNCTION__);
+
+  cell = gdiTableGetByHandle(gditable, GetStockObject(BLACK_PEN));
+  fprintf(stdout, 
+      "\tkernel_ptr = 0x%p\n"
+      "\tprocess    = %d\n"
+      "\tcount      = %d\n"
+      "\tupper      = %d\n"
+      "\ttype       = %d\n"
+      "\tuser_ptr   = 0x%p\n", 
+      cell.kernel_ptr, cell.process, cell.count, cell.upper, cell.type, cell.user_ptr);
+
+  gdiTableRelease(&gditable);
+}

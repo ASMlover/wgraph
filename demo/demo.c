@@ -55,6 +55,7 @@ static void demo_help(void* arg)
     "  -pe|-pehack          display the demo of wgPEHack module\n"
     "  -gt|-gditest         display the demo of GDIObject test module\n"
     "  -qtt|-qtabletest     display the demo of GDI query table testcase\n"
+    "  -gtt|-gditabletest   display the demo of GDI table testcase\n"
     );
 }
 
@@ -62,15 +63,16 @@ int
 main(int argc, char* argv[], char* envp[])
 {
   static struct WDemo demos[] = {
-    { "-h",   "-help",        demo_help                 }, 
-    { "-b",   "-browser",     demo_browser              }, 
-    { "-d",   "-desktop",     demo_drawdesktop          }, 
-    { "-f",   "-fullwin",     demo_fullwindow           }, 
-    { "-dx",  "-dxwin",       demo_windowdx             }, 
-    { "-t",   "-timer",       demo_timer                }, 
-    { "-pe",  "-pehack",      demo_pehack               }, 
-    { "-gt",  "-gditest",     demo_gdi_test             },  
-    { "-qtt", "-qtabletest",  demo_gdiquerytable_test   }, 
+    { "-h",   "-help",          demo_help                 }, 
+    { "-b",   "-browser",       demo_browser              }, 
+    { "-d",   "-desktop",       demo_drawdesktop          }, 
+    { "-f",   "-fullwin",       demo_fullwindow           }, 
+    { "-dx",  "-dxwin",         demo_windowdx             }, 
+    { "-t",   "-timer",         demo_timer                }, 
+    { "-pe",  "-pehack",        demo_pehack               }, 
+    { "-gt",  "-gditest",       demo_gdi_test             },  
+    { "-qtt", "-qtabletest",    demo_gdiquerytable_test   }, 
+    { "-gtt", "-gtabletest",    demo_gditable_test        }, 
   };
 
   UNUSED_PARAM(envp)
