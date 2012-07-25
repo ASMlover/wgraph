@@ -40,4 +40,8 @@ enum ResultType {
   Result_Failed_RegisterWindowClass = 3, 
 };
 
+#if _MSVC_VER <= 1400
+#pragma warning(disable:4996)
+#endif
+
 #endif  /* __COMMON_HEADER_H__ */
