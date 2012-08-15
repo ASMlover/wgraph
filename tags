@@ -8,7 +8,10 @@ DXWindow	.\demo\demo_windowdx.c	/^struct DXWindow {$/;"	s	language:C	file:
 FullWindow	.\demo\demo_fullwindow.c	/^struct FullWindow {$/;"	s	language:C	file:
 GDIObject	.\demo\demo_gdi.h	/^struct GDIObject {$/;"	s	language:C++
 GDIObject_Inherit	.\demo\demo_gdi.h	38;"	d	language:C++
-PEFile	.\src\pefile.c	/^struct PEFile {$/;"	s	language:C	file:
+GdiTable	.\demo\demo_gditable.c	/^struct GdiTable {$/;"	s	language:C	file:
+GdiTableCell	.\demo\demo_gditable.h	/^struct GdiTableCell {$/;"	s	language:C++
+HackWriteProcessMemory	.\src\wg_pehack.c	/^HackWriteProcessMemory(HANDLE hProcess, void* dest, void* source, DWORD sourceLen, DWORD* outWriteLen)$/;"	f	language:C	file:	signature:(HANDLE hProcess, void* dest, void* source, DWORD sourceLen, DWORD* outWriteLen)
+INITGUID	.\src\wg_draw.c	3;"	d	language:C	file:
 Pen	.\demo\demo_gdi.h	/^struct Pen {$/;"	s	language:C++
 PenImpl	.\demo\demo_gdi.c	/^struct PenImpl {$/;"	s	language:C	file:
 ResultType	.\inc\common.h	/^enum ResultType {$/;"	g	language:C++
@@ -21,47 +24,66 @@ STRICT	.\demo\demo_drawdesktop.c	29;"	d	language:C	file:
 STRICT	.\demo\demo_fullwindow.c	29;"	d	language:C	file:
 STRICT	.\demo\demo_gdi.c	29;"	d	language:C	file:
 STRICT	.\demo\demo_gdi_test.c	29;"	d	language:C	file:
-STRICT	.\demo\demo_pefile.c	29;"	d	language:C	file:
+STRICT	.\demo\demo_gdiquerytable_test.c	29;"	d	language:C	file:
+STRICT	.\demo\demo_gditable.c	29;"	d	language:C	file:
+STRICT	.\demo\demo_gditable_test.c	29;"	d	language:C	file:
+STRICT	.\demo\demo_pehack.c	29;"	d	language:C	file:
 STRICT	.\demo\demo_timer.c	29;"	d	language:C	file:
 STRICT	.\demo\demo_tools.c	29;"	d	language:C	file:
 STRICT	.\demo\demo_windowdx.c	58;"	d	language:C	file:
-STRICT	.\src\pefile.c	29;"	d	language:C	file:
+STRICT	.\src\wg_draw.c	1;"	d	language:C	file:
+STRICT	.\src\wg_pehack.c	29;"	d	language:C	file:
 STRICT	.\src\wg_window.c	29;"	d	language:C	file:
 TOOLS_DIVVALUE_DEF	.\demo\demo_tools.c	38;"	d	language:C	file:
 UNUSED_PARAM	.\inc\common.h	32;"	d	language:C++
 WDemo	.\demo\demo.c	/^struct WDemo {$/;"	s	language:C	file:
+WG_DDRAWSTRUCT_INIT	.\inc\wg_draw.h	13;"	d	language:C++
+WG_KEYDOWN	.\inc\wg_draw.h	9;"	d	language:C++
+WG_KEYUP	.\inc\wg_draw.h	10;"	d	language:C++
+WG_MAX_COLORS	.\inc\wg_draw.h	7;"	d	language:C++
+WG_PALETTES_DEF	.\src\wg_draw.c	15;"	d	language:C	file:
+WG_SCREEN_BPP	.\inc\wg_draw.h	6;"	d	language:C++
+WG_SCREEN_HEIGHT	.\inc\wg_draw.h	5;"	d	language:C++
+WG_SCREEN_WIDTH	.\inc\wg_draw.h	4;"	d	language:C++
 WIN32_LEAN_AND_MEAN	.\demo\demo_drawdesktop.c	30;"	d	language:C	file:
 WIN32_LEAN_AND_MEAN	.\demo\demo_fullwindow.c	30;"	d	language:C	file:
 WIN32_LEAN_AND_MEAN	.\demo\demo_gdi.c	30;"	d	language:C	file:
 WIN32_LEAN_AND_MEAN	.\demo\demo_gdi_test.c	30;"	d	language:C	file:
-WIN32_LEAN_AND_MEAN	.\demo\demo_pefile.c	30;"	d	language:C	file:
+WIN32_LEAN_AND_MEAN	.\demo\demo_gditable.c	30;"	d	language:C	file:
+WIN32_LEAN_AND_MEAN	.\demo\demo_pehack.c	30;"	d	language:C	file:
 WIN32_LEAN_AND_MEAN	.\demo\demo_timer.c	30;"	d	language:C	file:
 WIN32_LEAN_AND_MEAN	.\demo\demo_tools.c	30;"	d	language:C	file:
 WIN32_LEAN_AND_MEAN	.\demo\demo_windowdx.c	59;"	d	language:C	file:
-WIN32_LEAN_AND_MEAN	.\src\pefile.c	30;"	d	language:C	file:
+WIN32_LEAN_AND_MEAN	.\src\wg_draw.c	2;"	d	language:C	file:
+WIN32_LEAN_AND_MEAN	.\src\wg_pehack.c	30;"	d	language:C	file:
 WIN32_LEAN_AND_MEAN	.\src\wg_window.c	30;"	d	language:C	file:
 __COMMON_HEADER_H__	.\inc\common.h	30;"	d	language:C++
+__DEMO_GDITABLE_HEADER_H__	.\demo\demo_gditable.h	30;"	d	language:C++
 __DEMO_GDI_HEADER_H__	.\demo\demo_gdi.h	30;"	d	language:C++
 __DEMO_HEADER_H__	.\demo\demo.h	30;"	d	language:C++
 __DEMO_TOOLS_HEADER_H__	.\demo\demo_tools.h	30;"	d	language:C++
-__PE_FILE_HEADER__	.\inc\pefile.h	30;"	d	language:C++
+__WG_DRAW_HEADER_H__	.\inc\wg_draw.h	2;"	d	language:C++
+__WG_PEHACK_HEADER_H__	.\inc\wg_pehack.h	30;"	d	language:C++
 __WG_TIMER_HEADER_H__	.\inc\wg_timer.h	30;"	d	language:C++
 __WG_WINDOW_HEADER_H__	.\inc\wg_window.h	30;"	d	language:C++
 __blend	.\demo\demo_windowdx.c	/^static void __inline __blend(unsigned char* dest, unsigned char* src)$/;"	f	language:C	file:	signature:(unsigned char* dest, unsigned char* src)
 blend	.\demo\demo_windowdx.c	/^static void blend(struct DXWindow* self, int left, int top, int right, int bottom)$/;"	f	language:C	file:	signature:(struct DXWindow* self, int left, int top, int right, int bottom)
 centerText	.\demo\demo_drawdesktop.c	/^static void centerText(HDC hDC, int x, int y, $/;"	f	language:C	file:	signature:(HDC hDC, int x, int y, LPCTSTR face, LPCTSTR message, int point)
 cmd	.\demo\demo.c	/^  char* cmd;$/;"	m	language:C	struct:WDemo	file:
+count	.\demo\demo_gditable.h	/^  unsigned short  count;$/;"	m	language:C++	struct:GdiTableCell
 countof	.\inc\common.h	33;"	d	language:C++
 createEx	.\inc\wg_window.h	/^  int (*createEx)(struct wgWindow*, DWORD, LPCTSTR, LPCTSTR, $/;"	m	language:C++	struct:wgWindow
 createExDef	.\src\wg_window.c	/^static int createExDef(struct wgWindow* object, DWORD styleEx, LPCTSTR className, LPCTSTR windowName, $/;"	f	language:C	file:	signature:(struct wgWindow* object, DWORD styleEx, LPCTSTR className, LPCTSTR windowName, DWORD style, int x, int y, int width, int height, HWND hParent, HMENU hMenu, HINSTANCE hInst)
 ddraw	.\demo\demo_windowdx.c	/^  LPDIRECTDRAW        ddraw;$/;"	m	language:C	struct:DXWindow	file:
+ddscaps	.\src\wg_draw.c	/^  DDSCAPS2              ddscaps;$/;"	m	language:C	struct:wgDraw	file:
+ddsd	.\src\wg_draw.c	/^  DDSURFACEDESC2        ddsd;$/;"	m	language:C	struct:wgDraw	file:
 ddsurface	.\demo\demo_windowdx.c	/^  LPDIRECTDRAWSURFACE ddsurface;$/;"	m	language:C	struct:DXWindow	file:
 deleteObject	.\demo\demo_gdi.c	/^static int deleteObject(void* object)$/;"	f	language:C	file:	signature:(void* object)
 deleteObject	.\demo\demo_gdi.h	/^  int (*deleteObject)(void*);$/;"	m	language:C++	struct:GDIObject
 demo	.\demo\demo.c	/^  void (*demo)(void*);$/;"	m	language:C	struct:WDemo	file:
 demo_browser	.\demo\demo.h	/^extern void demo_browser(void* arg);$/;"	p	language:C++	signature:(void* arg)
 demo_browser	.\demo\demo_browser.c	/^void demo_browser(void* arg)$/;"	f	language:C	signature:(void* arg)
-demo_displayMessageA	.\demo\demo_pefile.c	/^static int WINAPI demo_displayMessageA(HWND hWnd, LPCSTR text, LPCSTR caption, UINT type)$/;"	f	language:C	file:	signature:(HWND hWnd, LPCSTR text, LPCSTR caption, UINT type)
+demo_displayMessageA	.\demo\demo_pehack.c	/^static int WINAPI demo_displayMessageA(HWND hWnd, LPCSTR text, LPCSTR caption, UINT type)$/;"	f	language:C	file:	signature:(HWND hWnd, LPCSTR text, LPCSTR caption, UINT type)
 demo_draw	.\demo\demo_fullwindow.c	/^static void demo_draw(struct wgWindow* object, HDC hDC)$/;"	f	language:C	file:	signature:(struct wgWindow* object, HDC hDC)
 demo_drawdesktop	.\demo\demo.h	/^extern void demo_drawdesktop(void* arg);$/;"	p	language:C++	signature:(void* arg)
 demo_drawdesktop	.\demo\demo_drawdesktop.c	/^void demo_drawdesktop(void* arg)$/;"	f	language:C	signature:(void* arg)
@@ -69,18 +91,22 @@ demo_fullwindow	.\demo\demo.h	/^extern void demo_fullwindow(void* arg);$/;"	p	la
 demo_fullwindow	.\demo\demo_fullwindow.c	/^void demo_fullwindow(void* arg)$/;"	f	language:C	signature:(void* arg)
 demo_gdi_test	.\demo\demo.h	/^extern void demo_gdi_test(void* arg);$/;"	p	language:C++	signature:(void* arg)
 demo_gdi_test	.\demo\demo_gdi_test.c	/^void demo_gdi_test(void* arg)$/;"	f	language:C	signature:(void* arg)
+demo_gdiquerytable_test	.\demo\demo.h	/^extern void demo_gdiquerytable_test(void* arg);$/;"	p	language:C++	signature:(void* arg)
+demo_gdiquerytable_test	.\demo\demo_gdiquerytable_test.c	/^void demo_gdiquerytable_test(void* arg)$/;"	f	language:C	signature:(void* arg)
+demo_gditable_test	.\demo\demo.h	/^extern void demo_gditable_test(void* arg);$/;"	p	language:C++	signature:(void* arg)
+demo_gditable_test	.\demo\demo_gditable_test.c	/^void demo_gditable_test(void* arg)$/;"	f	language:C	signature:(void* arg)
 demo_help	.\demo\demo.c	/^static void demo_help(void* arg)$/;"	f	language:C	file:	signature:(void* arg)
 demo_keyDown	.\demo\demo_fullwindow.c	/^static void demo_keyDown(struct wgWindow* object, WPARAM wp, LPARAM lp)$/;"	f	language:C	file:	signature:(struct wgWindow* object, WPARAM wp, LPARAM lp)
-demo_pefile	.\demo\demo.h	/^extern void demo_pefile(void* arg);$/;"	p	language:C++	signature:(void* arg)
-demo_pefile	.\demo\demo_pefile.c	/^void demo_pefile(void* arg)$/;"	f	language:C	signature:(void* arg)
-demo_pefile_help	.\demo\demo_pefile.c	/^static void demo_pefile_help(void)$/;"	f	language:C	file:	signature:(void)
-demo_pefile_setExport	.\demo\demo_pefile.c	/^static void demo_pefile_setExport(void)$/;"	f	language:C	file:	signature:(void)
-demo_pefile_setImport	.\demo\demo_pefile.c	/^static void demo_pefile_setImport(HINSTANCE hInst)$/;"	f	language:C	file:	signature:(HINSTANCE hInst)
+demo_pehack	.\demo\demo.h	/^extern void demo_pehack(void* arg);$/;"	p	language:C++	signature:(void* arg)
+demo_pehack	.\demo\demo_pehack.c	/^void demo_pehack(void* arg)$/;"	f	language:C	signature:(void* arg)
+demo_pehack_help	.\demo\demo_pehack.c	/^static void demo_pehack_help(void)$/;"	f	language:C	file:	signature:(void)
+demo_pehack_setExport	.\demo\demo_pehack.c	/^static void demo_pehack_setExport(void)$/;"	f	language:C	file:	signature:(void)
+demo_pehack_setImport	.\demo\demo_pehack.c	/^static void demo_pehack_setImport(HINSTANCE hInst)$/;"	f	language:C	file:	signature:(HINSTANCE hInst)
 demo_timer	.\demo\demo.h	/^extern void demo_timer(void* arg);$/;"	p	language:C++	signature:(void* arg)
 demo_timer	.\demo\demo_timer.c	/^void demo_timer(void* arg)$/;"	f	language:C	signature:(void* arg)
 demo_windowdx	.\demo\demo.h	/^extern void demo_windowdx(void* arg);$/;"	p	language:C++	signature:(void* arg)
 demo_windowdx	.\demo\demo_windowdx.c	/^void demo_windowdx(void* arg)$/;"	f	language:C	signature:(void* arg)
-dosHeader	.\src\pefile.c	/^  PIMAGE_DOS_HEADER   dosHeader;$/;"	m	language:C	struct:PEFile	file:
+dosHeader	.\src\wg_pehack.c	/^  PIMAGE_DOS_HEADER   dosHeader;$/;"	m	language:C	struct:wgPEHack	file:
 draw	.\demo\demo_windowdx.c	/^static void draw(struct wgWindow* object, HDC hDC)$/;"	f	language:C	file:	signature:(struct wgWindow* object, HDC hDC)
 draw	.\inc\wg_window.h	/^  void (*draw)(struct wgWindow*, HDC);$/;"	m	language:C++	struct:wgWindow
 drawCenterText	.\demo\demo_tools.c	/^void drawCenterText(HDC hDC, int x, int y, LPCTSTR face, LPCTSTR message, int point)$/;"	f	language:C	signature:(HDC hDC, int x, int y, LPCTSTR face, LPCTSTR message, int point)
@@ -100,6 +126,14 @@ g_message	.\demo\demo_fullwindow.c	/^static const TCHAR g_message[]  = TEXT("Hel
 g_message	.\demo\demo_windowdx.c	/^static const TCHAR* g_message = TEXT("Hello, world!");$/;"	v	language:C	file:
 g_program	.\demo\demo_fullwindow.c	/^static const TCHAR g_program[]  = TEXT("demo_fullwindow");$/;"	v	language:C	file:
 g_program	.\demo\demo_windowdx.c	/^static const TCHAR* g_program = TEXT("window_directX");$/;"	v	language:C	file:
+gdiTableCreate	.\demo\demo_gditable.c	/^struct GdiTable* gdiTableCreate(void)$/;"	f	language:C	signature:(void)
+gdiTableCreate	.\demo\demo_gditable.h	/^extern struct GdiTable* gdiTableCreate(void);$/;"	p	language:C++	signature:(void)
+gdiTableGetByHandle	.\demo\demo_gditable.c	/^struct GdiTableCell gdiTableGetByHandle(struct GdiTable* object, HGDIOBJ handle)$/;"	f	language:C	signature:(struct GdiTable* object, HGDIOBJ handle)
+gdiTableGetByHandle	.\demo\demo_gditable.h	/^extern struct GdiTableCell gdiTableGetByHandle(struct GdiTable* object, HGDIOBJ handle);$/;"	p	language:C++	signature:(struct GdiTable* object, HGDIOBJ handle)
+gdiTableGetByIndex	.\demo\demo_gditable.c	/^struct GdiTableCell gdiTableGetByIndex(struct GdiTable* object, unsigned int index)$/;"	f	language:C	signature:(struct GdiTable* object, unsigned int index)
+gdiTableGetByIndex	.\demo\demo_gditable.h	/^extern struct GdiTableCell gdiTableGetByIndex(struct GdiTable* object, unsigned int index);$/;"	p	language:C++	signature:(struct GdiTable* object, unsigned int index)
+gdiTableRelease	.\demo\demo_gditable.c	/^void gdiTableRelease(struct GdiTable** object)$/;"	f	language:C	signature:(struct GdiTable** object)
+gdiTableRelease	.\demo\demo_gditable.h	/^extern void gdiTableRelease(struct GdiTable** object);$/;"	p	language:C++	signature:(struct GdiTable** object)
 getCycleCount	.\src\wg_timer.c	/^static inline uint64_t getCycleCount(void)$/;"	f	language:C	file:	signature:(void)
 getObject	.\demo\demo_gdi.c	/^static int getObject(void* object, int bufferLen, void* buffer)$/;"	f	language:C	file:	signature:(void* object, int bufferLen, void* buffer)
 getObject	.\demo\demo_gdi.h	/^  int (*getObject)(void*, int, void*);$/;"	m	language:C++	struct:GDIObject
@@ -109,39 +143,94 @@ getWindowClassEx	.\inc\wg_window.h	/^  void (*getWindowClassEx)(struct wgWindow*
 getWindowClassExDef	.\src\wg_window.c	/^static void getWindowClassExDef(struct wgWindow* object, WNDCLASSEX* wc)$/;"	f	language:C	file:	signature:(struct wgWindow* object, WNDCLASSEX* wc)
 hWnd	.\inc\wg_window.h	/^  HWND hWnd;$/;"	m	language:C++	struct:wgWindow
 inline	.\src\wg_timer.c	35;"	d	language:C	file:
+kernel_ptr	.\demo\demo_gditable.h	/^  void*           kernel_ptr;$/;"	m	language:C++	struct:GdiTableCell
 keyDown	.\demo\demo_windowdx.c	/^static void keyDown(struct wgWindow* object, WPARAM wp, LPARAM lp)$/;"	f	language:C	file:	signature:(struct wgWindow* object, WPARAM wp, LPARAM lp)
 keyDown	.\inc\wg_window.h	/^  void (*keyDown)(struct wgWindow*, WPARAM, LPARAM);$/;"	m	language:C++	struct:wgWindow
 keyDownDef	.\src\wg_window.c	/^static void keyDownDef(struct wgWindow* object, WPARAM wp, LPARAM lp)$/;"	f	language:C	file:	signature:(struct wgWindow* object, WPARAM wp, LPARAM lp)
 logpen	.\demo\demo_gdi.c	/^  LOGPEN logpen;$/;"	m	language:C	struct:PenImpl	file:
+lpdd	.\src\wg_draw.c	/^  LPDIRECTDRAW7         lpdd;$/;"	m	language:C	struct:wgDraw	file:
+lpddclipper	.\src\wg_draw.c	/^  LPDIRECTDRAWCLIPPER   lpddclipper;$/;"	m	language:C	struct:wgDraw	file:
+lpddpal	.\src\wg_draw.c	/^  LPDIRECTDRAWPALETTE   lpddpal;$/;"	m	language:C	struct:wgDraw	file:
+lpddsback	.\src\wg_draw.c	/^  LPDIRECTDRAWSURFACE7  lpddsback;$/;"	m	language:C	struct:wgDraw	file:
+lpddsprimary	.\src\wg_draw.c	/^  LPDIRECTDRAWSURFACE7  lpddsprimary;$/;"	m	language:C	struct:wgDraw	file:
 main	.\demo\demo.c	/^main(int argc, char* argv[], char* envp[])$/;"	f	language:C	signature:(int argc, char* argv[], char* envp[])
+main_hwnd	.\src\wg_draw.c	/^  HWND        main_hwnd;$/;"	m	language:C	struct:wgDraw	file:
+main_instance	.\src\wg_draw.c	/^  HINSTANCE   main_instance;$/;"	m	language:C	struct:wgDraw	file:
+maxClipX	.\src\wg_draw.c	/^  int maxClipX;$/;"	m	language:C	struct:wgDraw	file:
+maxClipY	.\src\wg_draw.c	/^  int maxClipY;$/;"	m	language:C	struct:wgDraw	file:
 messageLoop	.\inc\wg_window.h	/^  WPARAM (*messageLoop)(struct wgWindow*);$/;"	m	language:C++	struct:wgWindow
 messageLoopDef	.\src\wg_window.c	/^static WPARAM messageLoopDef(struct wgWindow* object)$/;"	f	language:C	file:	signature:(struct wgWindow* object)
-moduleHandler	.\src\pefile.c	/^  const char*         moduleHandler;$/;"	m	language:C	struct:PEFile	file:
-ntHeader	.\src\pefile.c	/^  PIMAGE_NT_HEADERS   ntHeader;$/;"	m	language:C	struct:PEFile	file:
+minClipX	.\src\wg_draw.c	/^  int minClipX;$/;"	m	language:C	struct:wgDraw	file:
+minClipY	.\src\wg_draw.c	/^  int minClipY;$/;"	m	language:C	struct:wgDraw	file:
+moduleHandler	.\src\wg_pehack.c	/^  const char*         moduleHandler;$/;"	m	language:C	struct:wgPEHack	file:
+ntHeader	.\src\wg_pehack.c	/^  PIMAGE_NT_HEADERS   ntHeader;$/;"	m	language:C	struct:wgPEHack	file:
 overhead	.\src\wg_timer.c	/^  uint64_t overhead;$/;"	m	language:C	struct:wgTimer	file:
-peFileCreate	.\inc\pefile.h	/^extern struct PEFile* peFileCreate(HMODULE hModule);$/;"	p	language:C++	signature:(HMODULE hModule)
-peFileCreate	.\src\pefile.c	/^struct PEFile* peFileCreate(HMODULE moduleHandler)$/;"	f	language:C	signature:(HMODULE moduleHandler)
-peFileGetDirectory	.\inc\pefile.h	/^extern const void* peFileGetDirectory(struct PEFile* object, int id);$/;"	p	language:C++	signature:(struct PEFile* object, int id)
-peFileGetDirectory	.\src\pefile.c	/^const void* peFileGetDirectory(struct PEFile* object, int id)$/;"	f	language:C	signature:(struct PEFile* object, int id)
-peFileGetFunctionPtr	.\inc\pefile.h	/^extern const unsigned int* peFileGetFunctionPtr(struct PEFile* object, PIMAGE_IMPORT_DESCRIPTOR pImport, LPCSTR functionName);$/;"	p	language:C++	signature:(struct PEFile* object, PIMAGE_IMPORT_DESCRIPTOR pImport, LPCSTR functionName)
-peFileGetFunctionPtr	.\src\pefile.c	/^const unsigned int* peFileGetFunctionPtr(struct PEFile* object, PIMAGE_IMPORT_DESCRIPTOR pImport, LPCSTR functionName)$/;"	f	language:C	signature:(struct PEFile* object, PIMAGE_IMPORT_DESCRIPTOR pImport, LPCSTR functionName)
-peFileGetImportDiscriptor	.\inc\pefile.h	/^extern PIMAGE_IMPORT_DESCRIPTOR peFileGetImportDiscriptor(struct PEFile* object, LPCSTR dllName);$/;"	p	language:C++	signature:(struct PEFile* object, LPCSTR dllName)
-peFileGetImportDiscriptor	.\src\pefile.c	/^PIMAGE_IMPORT_DESCRIPTOR peFileGetImportDiscriptor(struct PEFile* object, LPCSTR dllName)$/;"	f	language:C	signature:(struct PEFile* object, LPCSTR dllName)
-peFileInit	.\src\pefile.c	/^static void peFileInit(struct PEFile* object, HMODULE moduleHandler)$/;"	f	language:C	file:	signature:(struct PEFile* object, HMODULE moduleHandler)
-peFileRelease	.\inc\pefile.h	/^extern void peFileRelease(struct PEFile** object);$/;"	p	language:C++	signature:(struct PEFile** object)
-peFileRelease	.\src\pefile.c	/^void peFileRelease(struct PEFile** object)$/;"	f	language:C	signature:(struct PEFile** object)
-peFileSetExportAddress	.\inc\pefile.h	/^extern FARPROC peFileSetExportAddress(struct PEFile* object, LPCSTR functionName, FARPROC functionAddress);$/;"	p	language:C++	signature:(struct PEFile* object, LPCSTR functionName, FARPROC functionAddress)
-peFileSetExportAddress	.\src\pefile.c	/^FARPROC peFileSetExportAddress(struct PEFile* object, LPCSTR functionName, FARPROC functionAddress)$/;"	f	language:C	signature:(struct PEFile* object, LPCSTR functionName, FARPROC functionAddress)
-peFileSetImportAddress	.\inc\pefile.h	/^extern FARPROC peFileSetImportAddress(struct PEFile* object, LPCSTR dllName, LPCSTR functionName, FARPROC functionAddress);$/;"	p	language:C++	signature:(struct PEFile* object, LPCSTR dllName, LPCSTR functionName, FARPROC functionAddress)
-peFileSetImportAddress	.\src\pefile.c	/^FARPROC peFileSetImportAddress(struct PEFile* object, LPCSTR dllName, LPCSTR functionName, FARPROC functionAddress)$/;"	f	language:C	signature:(struct PEFile* object, LPCSTR dllName, LPCSTR functionName, FARPROC functionAddress)
+pPROC	.\demo\demo_gdiquerytable_test.c	/^typedef UINT (CALLBACK *pPROC)(void);$/;"	t	language:C	file:
+pPROC	.\demo\demo_gditable.c	/^typedef UINT (CALLBACK *pPROC)(void);$/;"	t	language:C	file:
+palette	.\src\wg_draw.c	/^  PALETTEENTRY          palette[WG_PALETTES_DEF];$/;"	m	language:C	struct:wgDraw	file:
+peFileInit	.\src\wg_pehack.c	/^static void peFileInit(struct wgPEHack* object, HMODULE moduleHandler)$/;"	f	language:C	file:	signature:(struct wgPEHack* object, HMODULE moduleHandler)
 penCreate	.\demo\demo_gdi.c	/^extern struct Pen* penCreate(int style, int width, COLORREF color)$/;"	f	language:C	signature:(int style, int width, COLORREF color)
 penCreate	.\demo\demo_gdi.h	/^extern struct Pen* penCreate(int style, int width, COLORREF color);$/;"	p	language:C++	signature:(int style, int width, COLORREF color)
-rva2ptr	.\src\pefile.c	/^static const char* rva2ptr(struct PEFile* object, unsigned int rva)$/;"	f	language:C	file:	signature:(struct PEFile* object, unsigned int rva)
+process	.\demo\demo_gditable.h	/^  unsigned short  process;$/;"	m	language:C++	struct:GdiTableCell
+rva2ptr	.\src\wg_pehack.c	/^static const char* rva2ptr(struct wgPEHack* object, unsigned int rva)$/;"	f	language:C	file:	signature:(struct wgPEHack* object, unsigned int rva)
+screenBpp	.\src\wg_draw.c	/^  int screenBpp;$/;"	m	language:C	struct:wgDraw	file:
+screenHeight	.\src\wg_draw.c	/^  int screenHeight;$/;"	m	language:C	struct:wgDraw	file:
+screenWidth	.\src\wg_draw.c	/^  int screenWidth;$/;"	m	language:C	struct:wgDraw	file:
+startCount	.\src\wg_draw.c	/^  DWORD startCount;$/;"	m	language:C	struct:wgClock	file:
 start_cycle	.\src\wg_timer.c	/^  uint64_t start_cycle;$/;"	m	language:C	struct:wgTimer	file:
+tables	.\demo\demo_gditable.c	/^  struct GdiTableCell* tables;$/;"	m	language:C	struct:GdiTable	typeref:struct:GdiTable::GdiTableCell	file:
+type	.\demo\demo_gditable.h	/^  unsigned short  type;$/;"	m	language:C++	struct:GdiTableCell
 uint64_t	.\inc\wg_timer.h	/^  typedef unsigned __int64 uint64_t;$/;"	t	language:C++
 uint64_t	.\inc\wg_timer.h	/^  typedef unsigned longlong uint64_t;$/;"	t	language:C++
 unrealizeObject	.\demo\demo_gdi.c	/^static int unrealizeObject(void* object)$/;"	f	language:C	file:	signature:(void* object)
 unrealizeObject	.\demo\demo_gdi.h	/^  int (*unrealizeObject)(void*);$/;"	m	language:C++	struct:GDIObject
+upper	.\demo\demo_gditable.h	/^  unsigned short  upper;$/;"	m	language:C++	struct:GdiTableCell
+user_ptr	.\demo\demo_gditable.h	/^  void*           user_ptr;$/;"	m	language:C++	struct:GdiTableCell
+wgClock	.\src\wg_draw.c	/^struct wgClock {$/;"	s	language:C	file:
+wgClockCreate	.\inc\wg_draw.h	/^extern void* wgClockCreate(void);$/;"	p	language:C++	signature:(void)
+wgClockCreate	.\src\wg_draw.c	/^void* wgClockCreate(void)$/;"	f	language:C	signature:(void)
+wgClockGet	.\inc\wg_draw.h	/^extern DWORD wgClockGet(void* object);$/;"	p	language:C++	signature:(void* object)
+wgClockGet	.\src\wg_draw.c	/^DWORD wgClockGet(void* object)$/;"	f	language:C	signature:(void* object)
+wgClockRelease	.\inc\wg_draw.h	/^extern void wgClockRelease(void** object);$/;"	p	language:C++	signature:(void** object)
+wgClockRelease	.\src\wg_draw.c	/^void wgClockRelease(void** object)$/;"	f	language:C	signature:(void** object)
+wgClockStart	.\inc\wg_draw.h	/^extern DWORD wgClockStart(void* object);$/;"	p	language:C++	signature:(void* object)
+wgClockStart	.\src\wg_draw.c	/^DWORD wgClockStart(void* object)$/;"	f	language:C	signature:(void* object)
+wgClockWait	.\inc\wg_draw.h	/^extern DWORD wgClockWait(void* object, DWORD count);$/;"	p	language:C++	signature:(void* object, DWORD count)
+wgClockWait	.\src\wg_draw.c	/^DWORD wgClockWait(void* object, DWORD count)$/;"	f	language:C	signature:(void* object, DWORD count)
+wgDraw	.\src\wg_draw.c	/^struct wgDraw {$/;"	s	language:C	file:
+wgDrawAttachClipper	.\inc\wg_draw.h	/^extern LPDIRECTDRAWCLIPPER wgDrawAttachClipper(void* object, LPDIRECTDRAWSURFACE7 lpdds, int numRects, LPRECT clipList);$/;"	p	language:C++	signature:(void* object, LPDIRECTDRAWSURFACE7 lpdds, int numRects, LPRECT clipList)
+wgDrawAttachClipper	.\src\wg_draw.c	/^LPDIRECTDRAWCLIPPER wgDrawAttachClipper(void* object, LPDIRECTDRAWSURFACE7 lpdds, int numRects, LPRECT clipList)$/;"	f	language:C	signature:(void* object, LPDIRECTDRAWSURFACE7 lpdds, int numRects, LPRECT clipList)
+wgDrawCreate	.\inc\wg_draw.h	/^extern void* wgDrawCreate(HWND main_hwnd, HINSTANCE main_instance);$/;"	p	language:C++	signature:(HWND main_hwnd, HINSTANCE main_instance)
+wgDrawCreate	.\src\wg_draw.c	/^void* wgDrawCreate(HWND main_hwnd, HINSTANCE main_instance)$/;"	f	language:C	signature:(HWND main_hwnd, HINSTANCE main_instance)
+wgDrawFillSurface	.\inc\wg_draw.h	/^extern int wgDrawFillSurface(void* object, LPDIRECTDRAWSURFACE7 lpdds, int color);$/;"	p	language:C++	signature:(void* object, LPDIRECTDRAWSURFACE7 lpdds, int color)
+wgDrawFillSurface	.\src\wg_draw.c	/^int wgDrawFillSurface(void* object, LPDIRECTDRAWSURFACE7 lpdds, int color)$/;"	f	language:C	signature:(void* object, LPDIRECTDRAWSURFACE7 lpdds, int color)
+wgDrawFlip	.\inc\wg_draw.h	/^extern int wgDrawFlip(void* object);$/;"	p	language:C++	signature:(void* object)
+wgDrawFlip	.\src\wg_draw.c	/^int wgDrawFlip(void* object)$/;"	f	language:C	signature:(void* object)
+wgDrawInit	.\inc\wg_draw.h	/^extern int wgDrawInit(void* object, int width, int height, int bpp);$/;"	p	language:C++	signature:(void* object, int width, int height, int bpp)
+wgDrawInit	.\src\wg_draw.c	/^int wgDrawInit(void* object, int width, int height, int bpp)$/;"	f	language:C	signature:(void* object, int width, int height, int bpp)
+wgDrawRectangle	.\inc\wg_draw.h	/^extern int wgDrawRectangle(void* object, int left, int top, int right, int bottom, int color);$/;"	p	language:C++	signature:(void* object, int left, int top, int right, int bottom, int color)
+wgDrawRectangle	.\src\wg_draw.c	/^int wgDrawRectangle(void* object, int left, int top, int right, int bottom, int color)$/;"	f	language:C	signature:(void* object, int left, int top, int right, int bottom, int color)
+wgDrawRelease	.\inc\wg_draw.h	/^extern void wgDrawRelease(void** object);$/;"	p	language:C++	signature:(void** object)
+wgDrawRelease	.\src\wg_draw.c	/^void wgDrawRelease(void** object)$/;"	f	language:C	signature:(void** object)
+wgDrawTextGdi	.\inc\wg_draw.h	/^extern int wgDrawTextGdi(void* object, int x, int y, LPCTSTR text, int color);$/;"	p	language:C++	signature:(void* object, int x, int y, LPCTSTR text, int color)
+wgDrawTextGdi	.\src\wg_draw.c	/^int wgDrawTextGdi(void* object, int x, int y, LPCTSTR text, int color)$/;"	f	language:C	signature:(void* object, int x, int y, LPCTSTR text, int color)
+wgDrawUninit	.\inc\wg_draw.h	/^extern void wgDrawUninit(void* object);$/;"	p	language:C++	signature:(void* object)
+wgDrawUninit	.\src\wg_draw.c	/^void wgDrawUninit(void* object)$/;"	f	language:C	signature:(void* object)
+wgPEHack	.\src\wg_pehack.c	/^struct wgPEHack {$/;"	s	language:C	file:
+wgPEHackCreate	.\inc\wg_pehack.h	/^extern struct wgPEHack* wgPEHackCreate(HMODULE moduleHandler);$/;"	p	language:C++	signature:(HMODULE moduleHandler)
+wgPEHackCreate	.\src\wg_pehack.c	/^struct wgPEHack* wgPEHackCreate(HMODULE moduleHandler)$/;"	f	language:C	signature:(HMODULE moduleHandler)
+wgPEHackGetDirectory	.\inc\wg_pehack.h	/^extern const void* wgPEHackGetDirectory(struct wgPEHack* object, int id);$/;"	p	language:C++	signature:(struct wgPEHack* object, int id)
+wgPEHackGetDirectory	.\src\wg_pehack.c	/^const void* wgPEHackGetDirectory(struct wgPEHack* object, int id)$/;"	f	language:C	signature:(struct wgPEHack* object, int id)
+wgPEHackGetFunctionPtr	.\inc\wg_pehack.h	/^extern const UINT* wgPEHackGetFunctionPtr(struct wgPEHack* object, PIMAGE_IMPORT_DESCRIPTOR import, LPCSTR functionName);$/;"	p	language:C++	signature:(struct wgPEHack* object, PIMAGE_IMPORT_DESCRIPTOR import, LPCSTR functionName)
+wgPEHackGetFunctionPtr	.\src\wg_pehack.c	/^const UINT* wgPEHackGetFunctionPtr(struct wgPEHack* object, PIMAGE_IMPORT_DESCRIPTOR import, LPCSTR functionName)$/;"	f	language:C	signature:(struct wgPEHack* object, PIMAGE_IMPORT_DESCRIPTOR import, LPCSTR functionName)
+wgPEHackGetImportDescriptor	.\inc\wg_pehack.h	/^extern PIMAGE_IMPORT_DESCRIPTOR wgPEHackGetImportDescriptor(struct wgPEHack* object, LPCSTR dllName);$/;"	p	language:C++	signature:(struct wgPEHack* object, LPCSTR dllName)
+wgPEHackGetImportDescriptor	.\src\wg_pehack.c	/^PIMAGE_IMPORT_DESCRIPTOR wgPEHackGetImportDescriptor(struct wgPEHack* object, LPCSTR dllName)$/;"	f	language:C	signature:(struct wgPEHack* object, LPCSTR dllName)
+wgPEHackRelease	.\inc\wg_pehack.h	/^extern void wgPEHackRelease(struct wgPEHack** object);$/;"	p	language:C++	signature:(struct wgPEHack** object)
+wgPEHackRelease	.\src\wg_pehack.c	/^void wgPEHackRelease(struct wgPEHack** object)$/;"	f	language:C	signature:(struct wgPEHack** object)
+wgPEHackSetExportAddress	.\inc\wg_pehack.h	/^extern FARPROC wgPEHackSetExportAddress(struct wgPEHack* object, LPCSTR functionName, FARPROC functionAddress);$/;"	p	language:C++	signature:(struct wgPEHack* object, LPCSTR functionName, FARPROC functionAddress)
+wgPEHackSetExportAddress	.\src\wg_pehack.c	/^FARPROC wgPEHackSetExportAddress(struct wgPEHack* object, LPCSTR functionName, FARPROC functionAddress)$/;"	f	language:C	signature:(struct wgPEHack* object, LPCSTR functionName, FARPROC functionAddress)
+wgPEHackSetImportAddress	.\inc\wg_pehack.h	/^extern FARPROC wgPEHackSetImportAddress(struct wgPEHack* object, LPCSTR dllName, LPCSTR functionName, FARPROC functionAddress);$/;"	p	language:C++	signature:(struct wgPEHack* object, LPCSTR dllName, LPCSTR functionName, FARPROC functionAddress)
+wgPEHackSetImportAddress	.\src\wg_pehack.c	/^FARPROC wgPEHackSetImportAddress(struct wgPEHack* object, LPCSTR dllName, LPCSTR functionName, FARPROC functionAddress)$/;"	f	language:C	signature:(struct wgPEHack* object, LPCSTR dllName, LPCSTR functionName, FARPROC functionAddress)
 wgTimer	.\src\wg_timer.c	/^struct wgTimer {$/;"	s	language:C	file:
 wgTimerCreate	.\inc\wg_timer.h	/^extern struct wgTimer* wgTimerCreate(void);$/;"	p	language:C++	signature:(void)
 wgTimerCreate	.\src\wg_timer.c	/^struct wgTimer* wgTimerCreate(void)$/;"	f	language:C	signature:(void)
