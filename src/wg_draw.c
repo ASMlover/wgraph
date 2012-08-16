@@ -1,3 +1,31 @@
+/*
+ * Copyright (c) 2012 ASMlover. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ *  * Redistributions of source code must retain the above copyright
+ *    notice, this list ofconditions and the following disclaimer.
+ *
+ *    notice, this list of conditions and the following disclaimer in
+ *  * Redistributions in binary form must reproduce the above copyright
+ *    the documentation and/or other materialsprovided with the
+ *    distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
 #define STRICT
 #define WIN32_LEAN_AND_MEAN
 #define INITGUID
@@ -42,7 +70,8 @@ struct wgClock {
 
 
 
-void* wgDrawCreate(HWND main_hwnd, HINSTANCE main_instance)
+void* 
+wgDrawCreate(HWND main_hwnd, HINSTANCE main_instance)
 {
   struct wgDraw* object = (struct wgDraw*)calloc(1, sizeof(*object));
 
@@ -58,7 +87,8 @@ void* wgDrawCreate(HWND main_hwnd, HINSTANCE main_instance)
   return object;
 }
 
-void wgDrawRelease(void** object)
+void 
+wgDrawRelease(void** object)
 {
   if (NULL != *object)
   {
@@ -68,7 +98,8 @@ void wgDrawRelease(void** object)
   }
 }
 
-int wgDrawInit(void* object, int width, int height, int bpp)
+int 
+wgDrawInit(void* object, int width, int height, int bpp)
 {
   int i;
   RECT screenRect;
@@ -99,8 +130,7 @@ int wgDrawInit(void* object, int width, int height, int bpp)
   IDirectDrawSurface7_GetAttachedSurface(self->lpddsprimary, &self->ddscaps, &self->lpddsback);
 
   memset(self->palette, 0, sizeof(self->palette));
-  for (i = 0; i < WG_PALETTES_DEF; ++i)
-  {
+  for (i = 0; i < WG_PALETTES_DEF; ++i) {
     if (i < 64)
       self->palette[i].peRed = 4 * i;
     else if (i >= 64 && i < 128)
@@ -132,30 +162,140 @@ int wgDrawInit(void* object, int width, int height, int bpp)
 
 void wgDrawUninit(void* object)
 {
+  struct wgDraw* self = (struct wgDraw*)object;
+  if (NULL == self)
+    return;
+
+  if (NULL != self->lpddclipper) {
+    IDirectDrawClipper_Release(self->lpddclipper);
+    self->lpddclipper = NULL;
+  }
+  if (NULL != self->lpddpal) {
+    IDirectDrawPalette_Release(self->lpddpal);
+    self->lpddpal = NULL;
+  }
+  if (NULL != self->lpddsback) {
+    IDirectDrawSurface7_Release(self->lpddsback);
+    self->lpddsback = NULL;
+  }
+  if (NULL != self->lpddsprimary) {
+    IDirectDrawSurface7_Release(self->lpddsprimary);
+    self->lpddsprimary = NULL;
+  }
+  if (NULL != self->lpdd) {
+    IDirectDraw7_Release(self->lpdd);
+    self->lpdd = NULL;
+  }
 }
 
 LPDIRECTDRAWCLIPPER wgDrawAttachClipper(void* object, LPDIRECTDRAWSURFACE7 lpdds, int numRects, LPRECT clipList)
 {
-  return NULL;
+  int i;
+  LPRGNDATA region_data;
+  LPDIRECTDRAWCLIPPER lpddclipper;
+
+  struct wgDraw* self = (struct wgDraw*)object;
+  if (NULL == self)
+    return NULL;
+
+  if (DD_OK != IDirectDraw7_CreateClipper(self->lpdd, 0, &lpddclipper, NULL))
+    return NULL;
+  region_data = (LPRGNDATA)malloc(sizeof(RGNDATAHEADER) + numRects * sizeof(RECT));
+  memcpy(region_data->Buffer, clipList, numRects * sizeof(RECT));
+  region_data->rdh.dwSize   = sizeof(RGNDATAHEADER);
+  region_data->rdh.iType    = RDH_RECTANGLES;
+  region_data->rdh.nCount   = numRects;
+  region_data->rdh.nRgnSize = numRects * sizeof(RECT);
+  region_data->rdh.rcBound.left   = 64000;
+  region_data->rdh.rcBound.top    = 64000;
+  region_data->rdh.rcBound.right  = -64000;
+  region_data->rdh.rcBound.bottom = -64000;
+
+  for (i = 0; i < numRects; ++i) {
+    if (clipList[i].left < region_data->rdh.rcBound.left)
+      region_data->rdh.rcBound.left = clipList[i].left;
+    if (clipList[i].top < region_data->rdh.rcBound.top)
+      region_data->rdh.rcBound.top = clipList[i].top;
+    if (clipList[i].right > region_data->rdh.rcBound.right)
+      region_data->rdh.rcBound.right = clipList[i].right;
+    if (clipList[i].bottom > region_data->rdh.rcBound.bottom)
+      region_data->rdh.rcBound.bottom = clipList[i].bottom;
+  }
+
+  if (DD_OK != IDirectDrawClipper_SetClipList(lpddclipper, region_data, 0)) {
+    free(region_data);
+    return NULL;
+  }
+  if (DD_OK != IDirectDrawSurface7_SetClipper(lpdds, lpddclipper)) {
+    free(region_data);
+    return NULL;
+  }
+
+  free(region_data);
+  return lpddclipper;
 }
 
 int wgDrawFlip(void* object)
 {
+  struct wgDraw* self = (struct wgDraw*)object;
+
+  if (NULL == self)
+    return Result_Failed;
+  while (DD_OK != IDirectDrawSurface_Flip(self->lpddsprimary, NULL, DDFLIP_WAIT)) {
+  }
+
   return Result_Success;
 }
 
 int wgDrawFillSurface(void* object, LPDIRECTDRAWSURFACE7 lpdds, int color)
 {
+  DDBLTFX ddbltfx;
+  struct wgDraw* self = (struct wgDraw*)object;
+
+  if (NULL == self)
+    return Result_Failed;
+
+  WG_DDRAWSTRUCT_INIT(ddbltfx);
+  ddbltfx.dwFillColor = color;
+
+  IDirectDrawSurface7_Blt(lpdds, NULL, NULL, NULL, 
+    DDBLT_COLORFILL | DDBLT_WAIT | DDBLT_ASYNC, &ddbltfx);
+
   return Result_Success;
 }
 
 int wgDrawRectangle(void* object, int left, int top, int right, int bottom, int color)
 {
+  DDBLTFX ddbltfx;
+  RECT fill_area = {left, top, right + 1, right + 1};
+  struct wgDraw* self = (struct wgDraw*)object;
+
+  if (NULL == self)
+    return Result_Failed;
+  WG_DDRAWSTRUCT_INIT(ddbltfx);
+  ddbltfx.dwFillColor = color;
+
+  IDirectDrawSurface7_Blt(self->lpddsback, &fill_area, NULL, NULL, 
+    DDBLT_COLORFILL | DDBLT_WAIT | DDBLT_ASYNC, &ddbltfx);
+
   return Result_Success;
 }
 
 int wgDrawTextGdi(void* object, int x, int y, LPCTSTR text, int color)
 {
+  HDC hDC;
+  struct wgDraw* self = (struct wgDraw*)object;
+
+  if (NULL == self)
+    return Result_Failed;
+
+  if (DD_OK != IDirectDrawSurface7_GetDC(self->lpddsback, &hDC))
+    return Result_Failed;
+  SetTextColor(hDC, RGB(self->palette[color].peRed, self->palette[color].peGreen, self->palette[color].peBlue));
+  SetBkMode(hDC, TRANSPARENT);
+  TextOut(hDC, x, y, text, _tcslen(text));
+
+  IDirectDrawSurface7_ReleaseDC(self->lpddsback, hDC);
   return Result_Success;
 }
 
@@ -163,26 +303,47 @@ int wgDrawTextGdi(void* object, int x, int y, LPCTSTR text, int color)
 
 
 
-void* wgClockCreate(void)
+void* 
+wgClockCreate(void)
 {
-  return NULL;
+  struct wgClock* object = (struct wgClock*)calloc(1, sizeof(*object));
+  return object;
 }
 
-void wgClockRelease(void** object)
+void 
+wgClockRelease(void** object)
 {
+  if (NULL != *object) {
+    free(*object);
+    *object = NULL;
+  }
 }
 
-DWORD wgClockStart(void* object)
+DWORD 
+wgClockStart(void* object)
 {
-  return 0;
+  struct wgClock* self = (struct wgClock*)object;
+  
+  if (NULL != self)
+    return (self->startCount = wgClockGet(self));
+  return 0UL;
 }
 
-DWORD wgClockGet(void* object)
+DWORD 
+wgClockGet(void* object)
 {
-  return 0;
+  return (NULL != object ? GetTickCount() : 0UL);
 }
 
 DWORD wgClockWait(void* object, DWORD count)
 {
-  return 0;
+  struct wgClock* self = (struct wgClock*)object;
+
+  if (NULL != self) {
+    while ((wgClockGet(self) - self->startCount) < count) {
+    }
+
+    return wgClockGet(self);
+  }
+  return 0UL;
 }
