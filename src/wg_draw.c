@@ -160,7 +160,8 @@ wgDrawInit(void* object, int width, int height, int bpp)
   return Result_Success;
 }
 
-void wgDrawUninit(void* object)
+void 
+wgDrawUninit(void* object)
 {
   struct wgDraw* self = (struct wgDraw*)object;
   if (NULL == self)
@@ -188,7 +189,8 @@ void wgDrawUninit(void* object)
   }
 }
 
-LPDIRECTDRAWCLIPPER wgDrawAttachClipper(void* object, LPDIRECTDRAWSURFACE7 lpdds, int numRects, LPRECT clipList)
+LPDIRECTDRAWCLIPPER 
+wgDrawAttachClipper(void* object, LPDIRECTDRAWSURFACE7 lpdds, int numRects, LPRECT clipList)
 {
   int i;
   LPRGNDATA region_data;
@@ -235,7 +237,8 @@ LPDIRECTDRAWCLIPPER wgDrawAttachClipper(void* object, LPDIRECTDRAWSURFACE7 lpdds
   return lpddclipper;
 }
 
-int wgDrawFlip(void* object)
+int 
+wgDrawFlip(void* object)
 {
   struct wgDraw* self = (struct wgDraw*)object;
 
@@ -247,7 +250,8 @@ int wgDrawFlip(void* object)
   return Result_Success;
 }
 
-int wgDrawFillSurface(void* object, LPDIRECTDRAWSURFACE7 lpdds, int color)
+int 
+wgDrawFillSurface(void* object, LPDIRECTDRAWSURFACE7 lpdds, int color)
 {
   DDBLTFX ddbltfx;
   struct wgDraw* self = (struct wgDraw*)object;
@@ -264,7 +268,8 @@ int wgDrawFillSurface(void* object, LPDIRECTDRAWSURFACE7 lpdds, int color)
   return Result_Success;
 }
 
-int wgDrawRectangle(void* object, int left, int top, int right, int bottom, int color)
+int 
+wgDrawRectangle(void* object, int left, int top, int right, int bottom, int color)
 {
   DDBLTFX ddbltfx;
   RECT fill_area = {left, top, right + 1, right + 1};
@@ -281,7 +286,8 @@ int wgDrawRectangle(void* object, int left, int top, int right, int bottom, int 
   return Result_Success;
 }
 
-int wgDrawTextGdi(void* object, int x, int y, LPCTSTR text, int color)
+int 
+wgDrawTextGdi(void* object, int x, int y, LPCTSTR text, int color)
 {
   HDC hDC;
   struct wgDraw* self = (struct wgDraw*)object;
