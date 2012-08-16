@@ -4,14 +4,36 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+BALL_SIZE	.\demo\demo_freakout.c	72;"	d	language:C	file:
+BALL_START_Y	.\demo\demo_freakout.c	71;"	d	language:C	file:
+BLOCK_HEIGHT	.\demo\demo_freakout.c	57;"	d	language:C	file:
+BLOCK_ORIGIN_X	.\demo\demo_freakout.c	58;"	d	language:C	file:
+BLOCK_ORIGIN_Y	.\demo\demo_freakout.c	59;"	d	language:C	file:
+BLOCK_WIDTH	.\demo\demo_freakout.c	56;"	d	language:C	file:
+BLOCK_X_GAP	.\demo\demo_freakout.c	60;"	d	language:C	file:
+BLOCK_Y_GAP	.\demo\demo_freakout.c	61;"	d	language:C	file:
 DXWindow	.\demo\demo_windowdx.c	/^struct DXWindow {$/;"	s	language:C	file:
+Freakout	.\demo\demo_freakout.c	/^struct Freakout {$/;"	s	language:C	file:
 FullWindow	.\demo\demo_fullwindow.c	/^struct FullWindow {$/;"	s	language:C	file:
+GAME_STATE_EXIT	.\demo\demo_freakout.c	51;"	d	language:C	file:
+GAME_STATE_INIT	.\demo\demo_freakout.c	47;"	d	language:C	file:
+GAME_STATE_RUN	.\demo\demo_freakout.c	49;"	d	language:C	file:
+GAME_STATE_START	.\demo\demo_freakout.c	48;"	d	language:C	file:
+GAME_STATE_STOP	.\demo\demo_freakout.c	50;"	d	language:C	file:
 GDIObject	.\demo\demo_gdi.h	/^struct GDIObject {$/;"	s	language:C++
 GDIObject_Inherit	.\demo\demo_gdi.h	38;"	d	language:C++
 GdiTable	.\demo\demo_gditable.c	/^struct GdiTable {$/;"	s	language:C	file:
 GdiTableCell	.\demo\demo_gditable.h	/^struct GdiTableCell {$/;"	s	language:C++
 HackWriteProcessMemory	.\src\wg_pehack.c	/^HackWriteProcessMemory(HANDLE hProcess, void* dest, void* source, DWORD sourceLen, DWORD* outWriteLen)$/;"	f	language:C	file:	signature:(HANDLE hProcess, void* dest, void* source, DWORD sourceLen, DWORD* outWriteLen)
-INITGUID	.\src\wg_draw.c	3;"	d	language:C	file:
+INITGUID	.\demo\demo_freakout.c	31;"	d	language:C	file:
+INITGUID	.\src\wg_draw.c	31;"	d	language:C	file:
+NUM_BLOCK_COLS	.\demo\demo_freakout.c	55;"	d	language:C	file:
+NUM_BLOCK_ROWS	.\demo\demo_freakout.c	54;"	d	language:C	file:
+PADDLE_COLOR	.\demo\demo_freakout.c	68;"	d	language:C	file:
+PADDLE_HEIGHT	.\demo\demo_freakout.c	67;"	d	language:C	file:
+PADDLE_START_X	.\demo\demo_freakout.c	64;"	d	language:C	file:
+PADDLE_START_Y	.\demo\demo_freakout.c	65;"	d	language:C	file:
+PADDLE_WIDTH	.\demo\demo_freakout.c	66;"	d	language:C	file:
 Pen	.\demo\demo_gdi.h	/^struct Pen {$/;"	s	language:C++
 PenImpl	.\demo\demo_gdi.c	/^struct PenImpl {$/;"	s	language:C	file:
 ResultType	.\inc\common.h	/^enum ResultType {$/;"	g	language:C++
@@ -21,6 +43,7 @@ Result_Failed_RegisterWindowClass	.\inc\common.h	/^  Result_Failed_RegisterWindo
 Result_Success	.\inc\common.h	/^  Result_Success                    = 0, $/;"	e	language:C++	enum:ResultType
 STRICT	.\demo\demo_browser.c	29;"	d	language:C	file:
 STRICT	.\demo\demo_drawdesktop.c	29;"	d	language:C	file:
+STRICT	.\demo\demo_freakout.c	29;"	d	language:C	file:
 STRICT	.\demo\demo_fullwindow.c	29;"	d	language:C	file:
 STRICT	.\demo\demo_gdi.c	29;"	d	language:C	file:
 STRICT	.\demo\demo_gdi_test.c	29;"	d	language:C	file:
@@ -31,21 +54,22 @@ STRICT	.\demo\demo_pehack.c	29;"	d	language:C	file:
 STRICT	.\demo\demo_timer.c	29;"	d	language:C	file:
 STRICT	.\demo\demo_tools.c	29;"	d	language:C	file:
 STRICT	.\demo\demo_windowdx.c	58;"	d	language:C	file:
-STRICT	.\src\wg_draw.c	1;"	d	language:C	file:
+STRICT	.\src\wg_draw.c	29;"	d	language:C	file:
 STRICT	.\src\wg_pehack.c	29;"	d	language:C	file:
 STRICT	.\src\wg_window.c	29;"	d	language:C	file:
 TOOLS_DIVVALUE_DEF	.\demo\demo_tools.c	38;"	d	language:C	file:
 UNUSED_PARAM	.\inc\common.h	32;"	d	language:C++
 WDemo	.\demo\demo.c	/^struct WDemo {$/;"	s	language:C	file:
-WG_DDRAWSTRUCT_INIT	.\inc\wg_draw.h	13;"	d	language:C++
-WG_KEYDOWN	.\inc\wg_draw.h	9;"	d	language:C++
-WG_KEYUP	.\inc\wg_draw.h	10;"	d	language:C++
-WG_MAX_COLORS	.\inc\wg_draw.h	7;"	d	language:C++
-WG_PALETTES_DEF	.\src\wg_draw.c	15;"	d	language:C	file:
-WG_SCREEN_BPP	.\inc\wg_draw.h	6;"	d	language:C++
-WG_SCREEN_HEIGHT	.\inc\wg_draw.h	5;"	d	language:C++
-WG_SCREEN_WIDTH	.\inc\wg_draw.h	4;"	d	language:C++
+WG_DDRAWSTRUCT_INIT	.\inc\wg_draw.h	41;"	d	language:C++
+WG_KEYDOWN	.\inc\wg_draw.h	37;"	d	language:C++
+WG_KEYUP	.\inc\wg_draw.h	38;"	d	language:C++
+WG_MAX_COLORS	.\inc\wg_draw.h	35;"	d	language:C++
+WG_PALETTES_DEF	.\src\wg_draw.c	43;"	d	language:C	file:
+WG_SCREEN_BPP	.\inc\wg_draw.h	34;"	d	language:C++
+WG_SCREEN_HEIGHT	.\inc\wg_draw.h	33;"	d	language:C++
+WG_SCREEN_WIDTH	.\inc\wg_draw.h	32;"	d	language:C++
 WIN32_LEAN_AND_MEAN	.\demo\demo_drawdesktop.c	30;"	d	language:C	file:
+WIN32_LEAN_AND_MEAN	.\demo\demo_freakout.c	30;"	d	language:C	file:
 WIN32_LEAN_AND_MEAN	.\demo\demo_fullwindow.c	30;"	d	language:C	file:
 WIN32_LEAN_AND_MEAN	.\demo\demo_gdi.c	30;"	d	language:C	file:
 WIN32_LEAN_AND_MEAN	.\demo\demo_gdi_test.c	30;"	d	language:C	file:
@@ -54,20 +78,29 @@ WIN32_LEAN_AND_MEAN	.\demo\demo_pehack.c	30;"	d	language:C	file:
 WIN32_LEAN_AND_MEAN	.\demo\demo_timer.c	30;"	d	language:C	file:
 WIN32_LEAN_AND_MEAN	.\demo\demo_tools.c	30;"	d	language:C	file:
 WIN32_LEAN_AND_MEAN	.\demo\demo_windowdx.c	59;"	d	language:C	file:
-WIN32_LEAN_AND_MEAN	.\src\wg_draw.c	2;"	d	language:C	file:
+WIN32_LEAN_AND_MEAN	.\src\wg_draw.c	30;"	d	language:C	file:
 WIN32_LEAN_AND_MEAN	.\src\wg_pehack.c	30;"	d	language:C	file:
 WIN32_LEAN_AND_MEAN	.\src\wg_window.c	30;"	d	language:C	file:
+WINDOW_HEIGHT	.\demo\demo_freakout.c	45;"	d	language:C	file:
+WINDOW_WIDTH	.\demo\demo_freakout.c	44;"	d	language:C	file:
+WND_CLASS_NAME	.\demo\demo_freakout.c	43;"	d	language:C	file:
 __COMMON_HEADER_H__	.\inc\common.h	30;"	d	language:C++
 __DEMO_GDITABLE_HEADER_H__	.\demo\demo_gditable.h	30;"	d	language:C++
 __DEMO_GDI_HEADER_H__	.\demo\demo_gdi.h	30;"	d	language:C++
 __DEMO_HEADER_H__	.\demo\demo.h	30;"	d	language:C++
 __DEMO_TOOLS_HEADER_H__	.\demo\demo_tools.h	30;"	d	language:C++
-__WG_DRAW_HEADER_H__	.\inc\wg_draw.h	2;"	d	language:C++
+__WG_DRAW_HEADER_H__	.\inc\wg_draw.h	30;"	d	language:C++
 __WG_PEHACK_HEADER_H__	.\inc\wg_pehack.h	30;"	d	language:C++
 __WG_TIMER_HEADER_H__	.\inc\wg_timer.h	30;"	d	language:C++
 __WG_WINDOW_HEADER_H__	.\inc\wg_window.h	30;"	d	language:C++
 __blend	.\demo\demo_windowdx.c	/^static void __inline __blend(unsigned char* dest, unsigned char* src)$/;"	f	language:C	file:	signature:(unsigned char* dest, unsigned char* src)
+ballDX	.\demo\demo_freakout.c	/^  int ballDX;       \/**!< velocity of ball            *\/$/;"	m	language:C	struct:Freakout	file:
+ballDY	.\demo\demo_freakout.c	/^  int ballDY;$/;"	m	language:C	struct:Freakout	file:
+ballX	.\demo\demo_freakout.c	/^  int ballX;        \/**!< tracks position of ball     *\/$/;"	m	language:C	struct:Freakout	file:
+ballY	.\demo\demo_freakout.c	/^  int ballY;$/;"	m	language:C	struct:Freakout	file:
 blend	.\demo\demo_windowdx.c	/^static void blend(struct DXWindow* self, int left, int top, int right, int bottom)$/;"	f	language:C	file:	signature:(struct DXWindow* self, int left, int top, int right, int bottom)
+blocks	.\demo\demo_freakout.c	/^  BYTE blocks[NUM_BLOCK_ROWS][NUM_BLOCK_COLS];  \/**!< this contains the game grid daat *\/$/;"	m	language:C	struct:Freakout	file:
+blocksHit	.\demo\demo_freakout.c	/^  int blocksHit;    \/**!< tracks number of blocks hit *\/$/;"	m	language:C	struct:Freakout	file:
 centerText	.\demo\demo_drawdesktop.c	/^static void centerText(HDC hDC, int x, int y, $/;"	f	language:C	file:	signature:(HDC hDC, int x, int y, LPCTSTR face, LPCTSTR message, int point)
 cmd	.\demo\demo.c	/^  char* cmd;$/;"	m	language:C	struct:WDemo	file:
 count	.\demo\demo_gditable.h	/^  unsigned short  count;$/;"	m	language:C++	struct:GdiTableCell
@@ -87,6 +120,8 @@ demo_displayMessageA	.\demo\demo_pehack.c	/^static int WINAPI demo_displayMessag
 demo_draw	.\demo\demo_fullwindow.c	/^static void demo_draw(struct wgWindow* object, HDC hDC)$/;"	f	language:C	file:	signature:(struct wgWindow* object, HDC hDC)
 demo_drawdesktop	.\demo\demo.h	/^extern void demo_drawdesktop(void* arg);$/;"	p	language:C++	signature:(void* arg)
 demo_drawdesktop	.\demo\demo_drawdesktop.c	/^void demo_drawdesktop(void* arg)$/;"	f	language:C	signature:(void* arg)
+demo_freakout	.\demo\demo.h	/^extern void demo_freakout(void* arg);$/;"	p	language:C++	signature:(void* arg)
+demo_freakout	.\demo\demo_freakout.c	/^demo_freakout(void* arg) $/;"	f	language:C	signature:(void* arg)
 demo_fullwindow	.\demo\demo.h	/^extern void demo_fullwindow(void* arg);$/;"	p	language:C++	signature:(void* arg)
 demo_fullwindow	.\demo\demo_fullwindow.c	/^void demo_fullwindow(void* arg)$/;"	f	language:C	signature:(void* arg)
 demo_gdi_test	.\demo\demo.h	/^extern void demo_gdi_test(void* arg);$/;"	p	language:C++	signature:(void* arg)
@@ -115,6 +150,10 @@ drawDef	.\src\wg_window.c	/^static void drawDef(struct wgWindow* object, HDC hDC
 dxWindowCreate	.\demo\demo_windowdx.c	/^static struct wgWindow* dxWindowCreate(void)$/;"	f	language:C	file:	signature:(void)
 dxWindowCreateSurface	.\demo\demo_windowdx.c	/^static int dxWindowCreateSurface(struct DXWindow* self)$/;"	f	language:C	file:	signature:(struct DXWindow* self)
 dxWindowRelase	.\demo\demo_windowdx.c	/^static void dxWindowRelase(struct wgWindow** object)$/;"	f	language:C	file:	signature:(struct wgWindow** object)
+freakoutDrawBlocks	.\demo\demo_freakout.c	/^freakoutDrawBlocks(struct Freakout* freakObject, void* drawObject)$/;"	f	language:C	file:	signature:(struct Freakout* freakObject, void* drawObject)
+freakoutInit	.\demo\demo_freakout.c	/^freakoutInit(struct Freakout* object) $/;"	f	language:C	file:	signature:(struct Freakout* object)
+freakoutInitBlocks	.\demo\demo_freakout.c	/^freakoutInitBlocks(struct Freakout* object)$/;"	f	language:C	file:	signature:(struct Freakout* object)
+freakoutProcessBall	.\demo\demo_freakout.c	/^freakoutProcessBall(struct Freakout* freakObject)$/;"	f	language:C	file:	signature:(struct Freakout* freakObject)
 fullCmd	.\demo\demo.c	/^  char* fullCmd;$/;"	m	language:C	struct:WDemo	file:
 fullWindowCreate	.\demo\demo_fullwindow.c	/^static struct wgWindow* fullWindowCreate(void)$/;"	f	language:C	file:	signature:(void)
 fullWindowRelease	.\demo\demo_fullwindow.c	/^static void fullWindowRelease(struct wgWindow** self)$/;"	f	language:C	file:	signature:(struct wgWindow** self)
@@ -126,6 +165,10 @@ g_message	.\demo\demo_fullwindow.c	/^static const TCHAR g_message[]  = TEXT("Hel
 g_message	.\demo\demo_windowdx.c	/^static const TCHAR* g_message = TEXT("Hello, world!");$/;"	v	language:C	file:
 g_program	.\demo\demo_fullwindow.c	/^static const TCHAR g_program[]  = TEXT("demo_fullwindow");$/;"	v	language:C	file:
 g_program	.\demo\demo_windowdx.c	/^static const TCHAR* g_program = TEXT("window_directX");$/;"	v	language:C	file:
+gameInit	.\demo\demo_freakout.c	/^gameInit(struct Freakout* freakObject, void* drawObject) $/;"	f	language:C	file:	signature:(struct Freakout* freakObject, void* drawObject)
+gameMain	.\demo\demo_freakout.c	/^gameMain(struct Freakout* freakObject, void* drawObject, void* clockObject)$/;"	f	language:C	file:	signature:(struct Freakout* freakObject, void* drawObject, void* clockObject)
+gameState	.\demo\demo_freakout.c	/^  int gameState;    \/**!< save the game state         *\/$/;"	m	language:C	struct:Freakout	file:
+gameStop	.\demo\demo_freakout.c	/^gameStop(struct Freakout* freakObject, void* drawObject)$/;"	f	language:C	file:	signature:(struct Freakout* freakObject, void* drawObject)
 gdiTableCreate	.\demo\demo_gditable.c	/^struct GdiTable* gdiTableCreate(void)$/;"	f	language:C	signature:(void)
 gdiTableCreate	.\demo\demo_gditable.h	/^extern struct GdiTable* gdiTableCreate(void);$/;"	p	language:C++	signature:(void)
 gdiTableGetByHandle	.\demo\demo_gditable.c	/^struct GdiTableCell gdiTableGetByHandle(struct GdiTable* object, HGDIOBJ handle)$/;"	f	language:C	signature:(struct GdiTable* object, HGDIOBJ handle)
@@ -147,6 +190,7 @@ kernel_ptr	.\demo\demo_gditable.h	/^  void*           kernel_ptr;$/;"	m	language
 keyDown	.\demo\demo_windowdx.c	/^static void keyDown(struct wgWindow* object, WPARAM wp, LPARAM lp)$/;"	f	language:C	file:	signature:(struct wgWindow* object, WPARAM wp, LPARAM lp)
 keyDown	.\inc\wg_window.h	/^  void (*keyDown)(struct wgWindow*, WPARAM, LPARAM);$/;"	m	language:C++	struct:wgWindow
 keyDownDef	.\src\wg_window.c	/^static void keyDownDef(struct wgWindow* object, WPARAM wp, LPARAM lp)$/;"	f	language:C	file:	signature:(struct wgWindow* object, WPARAM wp, LPARAM lp)
+level	.\demo\demo_freakout.c	/^  int level;        \/**!< the current level           *\/$/;"	m	language:C	struct:Freakout	file:
 logpen	.\demo\demo_gdi.c	/^  LOGPEN logpen;$/;"	m	language:C	struct:PenImpl	file:
 lpdd	.\src\wg_draw.c	/^  LPDIRECTDRAW7         lpdd;$/;"	m	language:C	struct:wgDraw	file:
 lpddclipper	.\src\wg_draw.c	/^  LPDIRECTDRAWCLIPPER   lpddclipper;$/;"	m	language:C	struct:wgDraw	file:
@@ -154,6 +198,7 @@ lpddpal	.\src\wg_draw.c	/^  LPDIRECTDRAWPALETTE   lpddpal;$/;"	m	language:C	stru
 lpddsback	.\src\wg_draw.c	/^  LPDIRECTDRAWSURFACE7  lpddsback;$/;"	m	language:C	struct:wgDraw	file:
 lpddsprimary	.\src\wg_draw.c	/^  LPDIRECTDRAWSURFACE7  lpddsprimary;$/;"	m	language:C	struct:wgDraw	file:
 main	.\demo\demo.c	/^main(int argc, char* argv[], char* envp[])$/;"	f	language:C	signature:(int argc, char* argv[], char* envp[])
+main_hwnd	.\demo\demo_freakout.c	/^  HWND main_hwnd;$/;"	m	language:C	struct:Freakout	file:
 main_hwnd	.\src\wg_draw.c	/^  HWND        main_hwnd;$/;"	m	language:C	struct:wgDraw	file:
 main_instance	.\src\wg_draw.c	/^  HINSTANCE   main_instance;$/;"	m	language:C	struct:wgDraw	file:
 maxClipX	.\src\wg_draw.c	/^  int maxClipX;$/;"	m	language:C	struct:wgDraw	file:
@@ -167,12 +212,15 @@ ntHeader	.\src\wg_pehack.c	/^  PIMAGE_NT_HEADERS   ntHeader;$/;"	m	language:C	st
 overhead	.\src\wg_timer.c	/^  uint64_t overhead;$/;"	m	language:C	struct:wgTimer	file:
 pPROC	.\demo\demo_gdiquerytable_test.c	/^typedef UINT (CALLBACK *pPROC)(void);$/;"	t	language:C	file:
 pPROC	.\demo\demo_gditable.c	/^typedef UINT (CALLBACK *pPROC)(void);$/;"	t	language:C	file:
+paddleX	.\demo\demo_freakout.c	/^  int paddleX;      \/**!< tracks position of paddle   *\/$/;"	m	language:C	struct:Freakout	file:
+paddleY	.\demo\demo_freakout.c	/^  int paddleY;$/;"	m	language:C	struct:Freakout	file:
 palette	.\src\wg_draw.c	/^  PALETTEENTRY          palette[WG_PALETTES_DEF];$/;"	m	language:C	struct:wgDraw	file:
 peFileInit	.\src\wg_pehack.c	/^static void peFileInit(struct wgPEHack* object, HMODULE moduleHandler)$/;"	f	language:C	file:	signature:(struct wgPEHack* object, HMODULE moduleHandler)
 penCreate	.\demo\demo_gdi.c	/^extern struct Pen* penCreate(int style, int width, COLORREF color)$/;"	f	language:C	signature:(int style, int width, COLORREF color)
 penCreate	.\demo\demo_gdi.h	/^extern struct Pen* penCreate(int style, int width, COLORREF color);$/;"	p	language:C++	signature:(int style, int width, COLORREF color)
 process	.\demo\demo_gditable.h	/^  unsigned short  process;$/;"	m	language:C++	struct:GdiTableCell
 rva2ptr	.\src\wg_pehack.c	/^static const char* rva2ptr(struct wgPEHack* object, unsigned int rva)$/;"	f	language:C	file:	signature:(struct wgPEHack* object, unsigned int rva)
+score	.\demo\demo_freakout.c	/^  int score;        \/**!< the score                   *\/$/;"	m	language:C	struct:Freakout	file:
 screenBpp	.\src\wg_draw.c	/^  int screenBpp;$/;"	m	language:C	struct:wgDraw	file:
 screenHeight	.\src\wg_draw.c	/^  int screenHeight;$/;"	m	language:C	struct:wgDraw	file:
 screenWidth	.\src\wg_draw.c	/^  int screenWidth;$/;"	m	language:C	struct:wgDraw	file:
@@ -188,34 +236,34 @@ upper	.\demo\demo_gditable.h	/^  unsigned short  upper;$/;"	m	language:C++	struc
 user_ptr	.\demo\demo_gditable.h	/^  void*           user_ptr;$/;"	m	language:C++	struct:GdiTableCell
 wgClock	.\src\wg_draw.c	/^struct wgClock {$/;"	s	language:C	file:
 wgClockCreate	.\inc\wg_draw.h	/^extern void* wgClockCreate(void);$/;"	p	language:C++	signature:(void)
-wgClockCreate	.\src\wg_draw.c	/^void* wgClockCreate(void)$/;"	f	language:C	signature:(void)
+wgClockCreate	.\src\wg_draw.c	/^wgClockCreate(void)$/;"	f	language:C	signature:(void)
 wgClockGet	.\inc\wg_draw.h	/^extern DWORD wgClockGet(void* object);$/;"	p	language:C++	signature:(void* object)
-wgClockGet	.\src\wg_draw.c	/^DWORD wgClockGet(void* object)$/;"	f	language:C	signature:(void* object)
+wgClockGet	.\src\wg_draw.c	/^wgClockGet(void* object)$/;"	f	language:C	signature:(void* object)
 wgClockRelease	.\inc\wg_draw.h	/^extern void wgClockRelease(void** object);$/;"	p	language:C++	signature:(void** object)
-wgClockRelease	.\src\wg_draw.c	/^void wgClockRelease(void** object)$/;"	f	language:C	signature:(void** object)
+wgClockRelease	.\src\wg_draw.c	/^wgClockRelease(void** object)$/;"	f	language:C	signature:(void** object)
 wgClockStart	.\inc\wg_draw.h	/^extern DWORD wgClockStart(void* object);$/;"	p	language:C++	signature:(void* object)
-wgClockStart	.\src\wg_draw.c	/^DWORD wgClockStart(void* object)$/;"	f	language:C	signature:(void* object)
+wgClockStart	.\src\wg_draw.c	/^wgClockStart(void* object)$/;"	f	language:C	signature:(void* object)
 wgClockWait	.\inc\wg_draw.h	/^extern DWORD wgClockWait(void* object, DWORD count);$/;"	p	language:C++	signature:(void* object, DWORD count)
 wgClockWait	.\src\wg_draw.c	/^DWORD wgClockWait(void* object, DWORD count)$/;"	f	language:C	signature:(void* object, DWORD count)
 wgDraw	.\src\wg_draw.c	/^struct wgDraw {$/;"	s	language:C	file:
 wgDrawAttachClipper	.\inc\wg_draw.h	/^extern LPDIRECTDRAWCLIPPER wgDrawAttachClipper(void* object, LPDIRECTDRAWSURFACE7 lpdds, int numRects, LPRECT clipList);$/;"	p	language:C++	signature:(void* object, LPDIRECTDRAWSURFACE7 lpdds, int numRects, LPRECT clipList)
-wgDrawAttachClipper	.\src\wg_draw.c	/^LPDIRECTDRAWCLIPPER wgDrawAttachClipper(void* object, LPDIRECTDRAWSURFACE7 lpdds, int numRects, LPRECT clipList)$/;"	f	language:C	signature:(void* object, LPDIRECTDRAWSURFACE7 lpdds, int numRects, LPRECT clipList)
+wgDrawAttachClipper	.\src\wg_draw.c	/^wgDrawAttachClipper(void* object, LPDIRECTDRAWSURFACE7 lpdds, int numRects, LPRECT clipList)$/;"	f	language:C	signature:(void* object, LPDIRECTDRAWSURFACE7 lpdds, int numRects, LPRECT clipList)
 wgDrawCreate	.\inc\wg_draw.h	/^extern void* wgDrawCreate(HWND main_hwnd, HINSTANCE main_instance);$/;"	p	language:C++	signature:(HWND main_hwnd, HINSTANCE main_instance)
-wgDrawCreate	.\src\wg_draw.c	/^void* wgDrawCreate(HWND main_hwnd, HINSTANCE main_instance)$/;"	f	language:C	signature:(HWND main_hwnd, HINSTANCE main_instance)
+wgDrawCreate	.\src\wg_draw.c	/^wgDrawCreate(HWND main_hwnd, HINSTANCE main_instance)$/;"	f	language:C	signature:(HWND main_hwnd, HINSTANCE main_instance)
 wgDrawFillSurface	.\inc\wg_draw.h	/^extern int wgDrawFillSurface(void* object, LPDIRECTDRAWSURFACE7 lpdds, int color);$/;"	p	language:C++	signature:(void* object, LPDIRECTDRAWSURFACE7 lpdds, int color)
-wgDrawFillSurface	.\src\wg_draw.c	/^int wgDrawFillSurface(void* object, LPDIRECTDRAWSURFACE7 lpdds, int color)$/;"	f	language:C	signature:(void* object, LPDIRECTDRAWSURFACE7 lpdds, int color)
+wgDrawFillSurface	.\src\wg_draw.c	/^wgDrawFillSurface(void* object, LPDIRECTDRAWSURFACE7 lpdds, int color)$/;"	f	language:C	signature:(void* object, LPDIRECTDRAWSURFACE7 lpdds, int color)
 wgDrawFlip	.\inc\wg_draw.h	/^extern int wgDrawFlip(void* object);$/;"	p	language:C++	signature:(void* object)
-wgDrawFlip	.\src\wg_draw.c	/^int wgDrawFlip(void* object)$/;"	f	language:C	signature:(void* object)
+wgDrawFlip	.\src\wg_draw.c	/^wgDrawFlip(void* object)$/;"	f	language:C	signature:(void* object)
 wgDrawInit	.\inc\wg_draw.h	/^extern int wgDrawInit(void* object, int width, int height, int bpp);$/;"	p	language:C++	signature:(void* object, int width, int height, int bpp)
-wgDrawInit	.\src\wg_draw.c	/^int wgDrawInit(void* object, int width, int height, int bpp)$/;"	f	language:C	signature:(void* object, int width, int height, int bpp)
+wgDrawInit	.\src\wg_draw.c	/^wgDrawInit(void* object, int width, int height, int bpp)$/;"	f	language:C	signature:(void* object, int width, int height, int bpp)
 wgDrawRectangle	.\inc\wg_draw.h	/^extern int wgDrawRectangle(void* object, int left, int top, int right, int bottom, int color);$/;"	p	language:C++	signature:(void* object, int left, int top, int right, int bottom, int color)
-wgDrawRectangle	.\src\wg_draw.c	/^int wgDrawRectangle(void* object, int left, int top, int right, int bottom, int color)$/;"	f	language:C	signature:(void* object, int left, int top, int right, int bottom, int color)
+wgDrawRectangle	.\src\wg_draw.c	/^wgDrawRectangle(void* object, int left, int top, int right, int bottom, int color)$/;"	f	language:C	signature:(void* object, int left, int top, int right, int bottom, int color)
 wgDrawRelease	.\inc\wg_draw.h	/^extern void wgDrawRelease(void** object);$/;"	p	language:C++	signature:(void** object)
-wgDrawRelease	.\src\wg_draw.c	/^void wgDrawRelease(void** object)$/;"	f	language:C	signature:(void** object)
+wgDrawRelease	.\src\wg_draw.c	/^wgDrawRelease(void** object)$/;"	f	language:C	signature:(void** object)
 wgDrawTextGdi	.\inc\wg_draw.h	/^extern int wgDrawTextGdi(void* object, int x, int y, LPCTSTR text, int color);$/;"	p	language:C++	signature:(void* object, int x, int y, LPCTSTR text, int color)
-wgDrawTextGdi	.\src\wg_draw.c	/^int wgDrawTextGdi(void* object, int x, int y, LPCTSTR text, int color)$/;"	f	language:C	signature:(void* object, int x, int y, LPCTSTR text, int color)
+wgDrawTextGdi	.\src\wg_draw.c	/^wgDrawTextGdi(void* object, int x, int y, LPCTSTR text, int color)$/;"	f	language:C	signature:(void* object, int x, int y, LPCTSTR text, int color)
 wgDrawUninit	.\inc\wg_draw.h	/^extern void wgDrawUninit(void* object);$/;"	p	language:C++	signature:(void* object)
-wgDrawUninit	.\src\wg_draw.c	/^void wgDrawUninit(void* object)$/;"	f	language:C	signature:(void* object)
+wgDrawUninit	.\src\wg_draw.c	/^wgDrawUninit(void* object)$/;"	f	language:C	signature:(void* object)
 wgPEHack	.\src\wg_pehack.c	/^struct wgPEHack {$/;"	s	language:C	file:
 wgPEHackCreate	.\inc\wg_pehack.h	/^extern struct wgPEHack* wgPEHackCreate(HMODULE moduleHandler);$/;"	p	language:C++	signature:(HMODULE moduleHandler)
 wgPEHackCreate	.\src\wg_pehack.c	/^struct wgPEHack* wgPEHackCreate(HMODULE moduleHandler)$/;"	f	language:C	signature:(HMODULE moduleHandler)
@@ -260,6 +308,7 @@ wgWindowUninit	.\src\wg_window.c	/^void wgWindowUninit(struct wgWindow* object)$
 wgWindowUpdate	.\inc\wg_window.h	/^extern int wgWindowUpdate(struct wgWindow* object);$/;"	p	language:C++	signature:(struct wgWindow* object)
 wgWindowUpdate	.\src\wg_window.c	/^int wgWindowUpdate(struct wgWindow* object)$/;"	f	language:C	signature:(struct wgWindow* object)
 wgWindow_Inherit	.\inc\wg_window.h	42;"	d	language:C++
+wndProc	.\demo\demo_freakout.c	/^wndProc(HWND h, UINT msg, WPARAM wp, LPARAM lp) $/;"	f	language:C	file:	signature:(HWND h, UINT msg, WPARAM wp, LPARAM lp)
 wndProc	.\inc\wg_window.h	/^  LRESULT (*wndProc)(struct wgWindow*, HWND, UINT, WPARAM, LPARAM);$/;"	m	language:C++	struct:wgWindow
 wndProc	.\src\wg_window.c	/^static LRESULT CALLBACK wndProc(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)$/;"	f	language:C	file:	signature:(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 wndProc	.\src\wg_window.c	/^static LRESULT CALLBACK wndProc(HWND, UINT, WPARAM, LPARAM);$/;"	p	language:C	file:

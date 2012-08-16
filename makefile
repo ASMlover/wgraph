@@ -11,13 +11,13 @@ SRCS	= ./demo/demo.c ./demo/demo_browser.c ./demo/demo_drawdesktop.c\
 				./demo/demo_fullwindow.c ./demo/demo_tools.c ./demo/demo_windowdx.c\
 				./demo/demo_timer.c ./demo/demo_pehack.c ./demo/demo_gdi.c\
 				./demo/demo_gdi_test.c ./demo/demo_gdiquerytable_test.c\
-				./demo/demo_gditable_test.c ./demo/demo_gditable.c\
+				./demo/demo_gditable_test.c ./demo/demo_gditable.c ./demo/demo_freakout.c\
 				\
 				./src/wg_window.c ./src/wg_timer.c ./src/wg_pehack.c ./src/wg_draw.c
 OBJS	= demo.obj demo_browser.obj demo_drawdesktop.obj demo_fullwindow.obj\
 				demo_tools.obj demo_windowdx.obj demo_timer.obj demo_pehack.obj\
 				demo_gdi.obj demo_gdi_test.obj demo_gdiquerytable_test.obj\
-				demo_gditable_test.obj demo_gditable.obj\
+				demo_gditable_test.obj demo_gditable.obj demo_freakout.obj\
 				\
 				wg_window.obj wg_timer.obj wg_pehack.obj wg_draw.obj
 

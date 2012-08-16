@@ -56,6 +56,7 @@ static void demo_help(void* arg)
     "  -gt|-gditest         display the demo of GDIObject test module\n"
     "  -qtt|-qtabletest     display the demo of GDI query table testcase\n"
     "  -gtt|-gditabletest   display the demo of GDI table testcase\n"
+    "  -gf|-freakout        display the demo of wgDraw module\n"
     );
 }
 
@@ -73,6 +74,7 @@ main(int argc, char* argv[], char* envp[])
     { "-gt",  "-gditest",       demo_gdi_test             },  
     { "-qtt", "-qtabletest",    demo_gdiquerytable_test   }, 
     { "-gtt", "-gtabletest",    demo_gditable_test        }, 
+    { "-gf",  "-freakout",      demo_freakout             }, 
   };
 
   UNUSED_PARAM(envp)

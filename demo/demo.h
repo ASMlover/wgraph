@@ -40,4 +40,6 @@ extern void demo_gdi_test(void* arg);
 extern void demo_gdiquerytable_test(void* arg);
 extern void demo_gditable_test(void* arg);
 
+extern void demo_freakout(void* arg);
+
 #endif  /* __DEMO_HEADER_H__ */
