@@ -272,7 +272,7 @@ int
 wgDrawRectangle(void* object, int left, int top, int right, int bottom, int color)
 {
   DDBLTFX ddbltfx;
-  RECT fill_area = {left, top, right + 1, right + 1};
+  RECT fill_area = {left, top, right + 1, bottom + 1};
   struct wgDraw* self = (struct wgDraw*)object;
 
   if (NULL == self)
