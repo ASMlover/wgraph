@@ -2,10 +2,10 @@ BIN	= wgraph.exe
 OUT	= bin
 CC	= cl -c -nologo
 CFLAG	= -O2 -W3 -MD -GS -Zi -Fd"vc.pdb" -D_DEBUG\
-				-D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_WARNINGS
+	-D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_WARNINGS
 LINK	= link -nologo
 LFLAG	= -DEBUG -PDB:"wgraph.pdb" -manifest -manifestfile:$(BIN).manifest\
-				-manifestuac:no kernel32.lib user32.lib gdi32.lib
+	-manifestuac:no kernel32.lib user32.lib gdi32.lib
 MT	= mt -nologo
 OBJS	= demo.obj demo_browser.obj demo_drawdesktop.obj demo_fullwindow.obj\
 	demo_tools.obj demo_windowdx.obj demo_timer.obj demo_pehack.obj\
